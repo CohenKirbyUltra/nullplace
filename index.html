@@ -4,7 +4,9 @@
         <style>
 
             * {
-                font-family: 'Courier New', Courier, monospace;
+                font-family: monospace, auto;
+                font-weight: 600;
+                text-transform: uppercase;
             }
 
             html {
@@ -12,19 +14,30 @@
             }
 
             #main {
+                border: solid;
                 border-radius: 32px;
                 border-width: 4px;
-                border-color: lightgray;
+                border-color: #b7afaf;
                 background-color: white;
+                width: 6.4in;
+                height: 6.5in;
             }
 
             #innerMain {
-                width: 60%;
+                width: 70%;
+                max-width: 70%;
                 height: 60%;
+                border: solid;
                 border-radius: 2px;
-                border-width: 4px;
-                border-color: darkslategray;
-                background-color: gray;
+                border-width: 3px;
+                border-color: #585858;
+                background-color: #cfd4c3;
+                filter: drop-shadow(0px 20px 5mm #000000cf);
+                min-inline-size: 80%;
+            }
+
+            #innerMain p {
+                color:  #424242;
             }
 
             /* Grid */
@@ -32,26 +45,42 @@
                 text-align: center;
                 align-items: center;
                 display: grid;
-                gap: 20px;
-                padding: 20px;
             }
 
             .grid-item {
-                text-align: center;
-                align-items: center;
-                padding: 20px;
-                border: 1px solid #ccc;
+                text-align: -webkit-center;
+                align-items: start;
+                padding: inherit;
+                height: 100%;
             }
 
             .button-item {
-                padding: 20px;
+                /* padding: 20px; */
                 text-align: center;
                 align-items: center;
                 border-style: solid;
+                font-size: x-small;
                 background-color: black;
                 color: white;
-                width: 90px;
+                width: 110px;
+                margin: 4;
                 height: 35px;
+                gap: 10px;
+            }
+
+            hr {
+                display: block;
+                position: relative;
+                padding: 10;
+                margin: 8px auto;
+                height: 2px;
+                max-height: 0;
+                font-size: 1px;
+                line-height: 2px;
+                clear: both;
+                border: none;
+                border-top: 2px solid #555555;
+                border-bottom: 1px solid #ffffff;
             }
         </style>
     </head>
@@ -59,36 +88,37 @@
     <body>
         <center>
             <div id="main">
-                <h4>[ MOCK UP ]</h4>
                 <br>
-                <div id="innerMain" class="grid-container" style="grid-template-columns: 1fr 1fr 1fr;">
-                    <div class="grid-item">
+                <h4 style="color: #aaaaaa;">[ MOCK UP ]</h4>
+                <hr style="width: 80%">
+                <div id="innerMain" class="grid-container" style="gap: 25px; padding: 20px;grid-template-columns: 1fr 1fr 1fr;">
+                    <div class="grid-item" style="gap: 20px;">
                         <p>Welcome !! :)</p>
                         <img src="src/imgs/deada.png" width="70px" height="70px">
                         <p>This is my passion project. Explore!</p>
                     </div>
-                    <div class="grid-item">
-                        <br>
+                    <div class="grid-item" style="gap: 20px;">
+                        <hr style="width: 80%">
                         <p>I make a lot of things and place it here!</p>
-                        <br>
+                        <hr style="width: 80%">
                         <img src="src/imgs/deada.png" width="70px" height="70px">
                     </div>
-                    <div class="grid-item">
+                    <div class="grid-item" style="gap: 20px;">
                         <p>CLICK ANYTHING</p>
                         <button class="button-item">SALVATION</button>
-                        <br>
+                        <hr style="width: 80%">
                         <button class="button-item">MODIFICATIONS</button>
-                        <br>
+                        <hr style="width: 80%">
                         <button class="button-item">???</button>
-                        <br>
+                        <hr style="width: 80%">
                         <p>VESSEL INFO</p>
                         <button class="button-item">ENCYCLOPEDIA</button>
                     </div>
                 </div>
-                <br>
+                <hr style="width: 80%">
                 <p>Placeholder</p>
                 <div class="grid-container" style="grid-template-columns: 1fr 1fr;">
-                    <div class="grid-container">                    
+                    <div class="grid-item" style="gap: 10px;">                    
                         <button class="button-item">???</button>
                         <button class="button-item">ARCHIVAL PLANE</button>
                     </div>
