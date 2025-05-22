@@ -8,6 +8,10 @@
 <head>
     <title>My Place</title>
     <style>
+        :root {
+            color-scheme: light dark;
+        }
+
         * {
             font-family: monospace, auto;
             font-weight: 600;
@@ -15,7 +19,7 @@
         }
 
         html {
-            background-color: grey;
+            background-color: light-dark(grey, rgb(46, 46, 46));
         }
 
         #LoadPlease {
@@ -36,8 +40,8 @@
             border: solid;
             border-radius: 32px;
             border-width: 4px;
-            border-color: #b7afaf;
-            background-color: white;
+            border-color: light-dark(#b7afaf, #837c7c;
+            background-color: light-dark(white,  grey);
             width: 7.3in;
             height: 7.5in;
         }
@@ -49,14 +53,14 @@
             border: solid;
             border-radius: 2px;
             border-width: 3px;
-            border-color: #585858;
-            background-color: #cfd4c3;
+            border-color: light-dark(#585858, #252525);
+            background-color: light-dark(#cfd4c3, #9ca190);
             filter: drop-shadow(0px 20px 5mm #000000cf);
             min-inline-size: 80%;
         }
 
         #innerMain p {
-            color: #424242;
+            color: light-dark(#2323237a,#6868687a);
         }
 
         /* Grid */
@@ -79,18 +83,18 @@
             align-items: center;
             border-style: solid;
             font-size: x-small;
-            background-color: black;
+            background-color: light-dark(black, lightgray);
             border-radius: 0;
-            color: white;
+            color: light-dark(white, rgb(108, 108, 108));
             width: 110px;
             margin: 4;
             height: 35px;
             gap: 10px;
-            transition: background-color 1s, border-radius 1s;
+            transition: background-color 0.5s, border-radius 0.5s;
         }
 
         .button-item:hover {
-            background-color: rgb(24, 24, 24);
+            background-color: light-dark(rgb(45, 45, 45),rgb(105, 104, 104));
             border-radius: 4px;
         }
 
@@ -105,7 +109,16 @@
             clear: both;
             border: none;
             border-width: 2px;
-            background-color: #00000055;
+            background-color: light-dark(#00000055, #dddddd55);
+        }
+
+        #darkmode {
+            display: none;
+        }        
+
+        #img-darkmode {
+            width: 80%;
+            height: 80%;
         }
     </style>
 </head>
@@ -113,23 +126,44 @@
 <body>
     <center>
         <div id="main">
+
             <br>
-            <h4 style="color: #aaaaaa;">[ MOCK UP ]</h4>
+
+            <div class="grid-container" style="gap: 25px; padding: 20px; grid-template-columns: 1fr 1fr 1fr;">
+                <div class="grid-item">
+                    <button name="darkmode" id="darkmode" style="width:75px; height:75px">
+                        <img id="img-darkmode" src="src/imgs/svg/Sun.svg">
+                    </button>
+                </div>
+            </div>
+
+            <br>
+
+            <h4 style="color: #aaaaaa;">[ WEBSITE IS VERY WIP. EXPECT UPDATES. ]</h4>
+
             <hr style="width: 80%; margin: 20px;">
+
             <div id="innerMain" class="grid-container"
-                style="gap: 25px; padding: 20px;grid-template-columns: 1fr 1fr 1fr;">
+                style="gap: 25px; padding: 20px; grid-template-columns: 1fr 1fr 1fr;">
+
                 <div class="grid-item" style="gap: 20px; align-self: stretch;">
                     <p>Welcome !! :)</p>
                     <img src="src/imgs/deada.png" width="70px" height="70px">
                     <p>This is my passion project. Explore!</p>
+
                 </div>
+
                 <div class="grid-item" style="gap: 20px; align-self: stretch;">
+
                     <hr style="width: 80%; margin: 20px;">
                     <p>I make a lot of things and place it here!</p>
                     <hr style="width: 80%; margin: 20px;">
                     <img src="src/imgs/deada.png" width="70px" height="70px">
+
                 </div>
+
                 <div class="grid-item" style="gap: 20px; align-self: stretch;">
+
                     <p>CLICK ANYTHING</p>
                     <button class="button-item">SALVATION</button>
                     <br>
@@ -139,17 +173,26 @@
                     <br>
                     <p>VESSEL INFO</p>
                     <button class="button-item">ENCYCLOPEDIA</button>
+
                 </div>
+
             </div>
+
             <hr style="width: 80%; margin: 30px;">
-            <p>Placeholder</p>
+
+            <p style="color: #2e2e2e;">Placeholder</p>
+
             <div class="grid-container" style="grid-template-columns: 1fr 1fr;">
+
                 <div class="grid-item" style="gap: 10px;">
+
                     <center>
                         <button class="button-item">???</button>
                         <button class="button-item">ARCHIVAL PLANE</button>
                     </center>
+
                 </div>
+
             </div>
         </div>
     </center>
