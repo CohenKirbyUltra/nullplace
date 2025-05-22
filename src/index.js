@@ -9,6 +9,8 @@ Music.volume = 0.23;
 Music.autoplay = true;
 Music.loop = true;
 
+Music.addEventListener("ended", Music.play());
+
 // Dom Load Element
 
 const DOMPlease = document.getElementById("LoadPlease");
