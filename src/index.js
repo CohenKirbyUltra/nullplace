@@ -8,7 +8,7 @@ Music.src = "src/audio/lostandalone.mp3";
 Music.volume = 0.23;
 Music.autoplay = true;
 
-document.addEventListener("click", function() {
+document.body.addEventListener("click", function() {
     if (!DOMLoaded) {
         DOMLoaded = true;
         Music.play();
