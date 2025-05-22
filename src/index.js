@@ -1,3 +1,12 @@
+const root = document.documentElement;
+const rootStyle = window.getComputedStyle(root);
+
+// Get a specific CSS property value
+const colorScheme = rootStyle.getPropertyValue('color-scheme');
+console.log(colorScheme);
+
+const darkimg = document.getElementById("img-darkmode");
+
 // Function
 
 var darkmode;
@@ -9,16 +18,16 @@ function updateScheme(bool) {
         darkmode = false;
     }
 
-    let all = document.querySelectorAll("*");
-
-    all.forEach((element) => {
-        if (darkmode = false) {
-            element.style += element.style['color-scheme'] = "light";
-        } else {
-            element.style += element.style['color-scheme'] = "dark";
-        }
-    });
+    if (darkmode) {
+        darkimg.src = "src/images/svg/Moon.svg";
+        root.style.setProperty('color-scheme', 'dark');
+    } else {
+        darkimg.src = "src/images/svg/Sun.svg";
+        root.style.setProperty('color-scheme', 'light');
+    }
 }
+
+
 
 // Music & DOM Loaded Variable
 
@@ -65,16 +74,12 @@ document.body.addEventListener("click", async () => {
 
 var change = false;
 
-const darkimg = document.getElementById("img-darkmode");
-
 document.getElementById("darkmode").addEventListener("click", function () {
     if (!change) { 
         darkmode = true;
-        darkimg.src = "src/images/svg/Moon.svg";
         localStorage.setItem("darkmode", true);
     } else {
         darkmode = false;
-        darkimg.src = "src/images/svg/Sun.svg";
         localStorage.setItem("darkmode", false);
     }
 });
