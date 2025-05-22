@@ -11,22 +11,23 @@
                 background-color: grey;
             }
 
-            #info {
-                border-radius: 16px;
+            #main {
+                border-radius: 32px;
+                border-width: 4px;
+                border-color: lightgray;
                 background-color: white;
             }
 
-            /* Grid */
-
-            .buttons-container {
-                display: flex;
-                gap: 10px;
-                margin-top: 20px;
+            #innerMain {
+                border-radius: 2px;
+                border-width: 4px;
+                border-color: darkslategray;
+                background-color: gray;
             }
 
+            /* Grid */
             .grid-container {
                 display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
                 gap: 20px;
                 padding: 20px;
             }
@@ -35,33 +36,50 @@
                 padding: 20px;
                 border: 1px solid #ccc;
             }
+
+            .button-item {
+                padding: 20px;
+                background-color: black;
+                color: white;
+                width: 90px;
+                height: 35px;
+            }
         </style>
     </head>
 
     <body>
         <center>
-            <div id="info" class="grid-container">
-                <div class="grid-item">
-                    <p>Left</p>
-                    <br>
-                    <img src="src/imgs/deada.png" width="150px" height="150px" alt="Placeholder">
-                </div>
-                <div class="grid-item">
-                    <p>Center</p>
-                    <br>
-                    <img src="src/imgs/deada.png" width="150px" height="150px" alt="Placeholder">
-                </div>
-                <div class="grid-item">
-                    <p>Right</p>
-                    <br>
-                    <img src="src/imgs/deada.png" width="150px" height="150px" alt="Placeholder">
-                </div>
-
+            <div id="main">
+                <h4>[ MOCK UP ]</h4>
                 <br>
-                
-                <p>
-                    I am testing the website.
-                </p>
+                <div id="innerMain" class="grid-container" style="grid-template-columns: 1fr 1fr 1fr;">
+                    <div class="grid-item">
+                        <p>Welcome !! :)</p>
+                        <img src="src/imgs/deada.png" width="70px" height="70px">
+                        <p>This is my passion project. Explore!</p>
+                    </div>
+                    <div class="grid-item">
+                        <br>
+                        <p>I make a lot of things and place it here!</p>
+                        <br>
+                        <img src="src/imgs/deada.png" width="70px" height="70px">
+                    </div>
+                    <div class="grid-item">
+                        <p>CLICK ANYTHING</p>
+                        <button class="button-item">SALVATION</button>
+                        <button class="button-item">MODIFICATIONS</button>
+                        <button class="button-item">???</button>
+                        <br>
+                        <p>VESSEL INFO</p>
+                        <button class="button-item">ENCYCLOPEDIA</button>
+                    </div>
+                </div>
+                <br>
+                <p>Placeholder</p>
+                <div class="grid-container" style="grid-template-columns: 1fr 1fr;">
+                    <button class="button-item">???</button>
+                    <button class="button-item">ARCHIVAL PLANE</button>
+                </div>
             </div>
         </center>
 
