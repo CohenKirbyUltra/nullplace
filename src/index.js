@@ -13,9 +13,9 @@ function updateScheme(bool) {
 
     all.forEach((element) => {
         if (darkmode = false) {
-            element.style.colorScheme = "light";
+            element.style['color-scheme'] = "light";
         } else {
-            element.style.colorScheme = "dark";
+            element.style['color-scheme'] = "dark";
         }
     });
 }
