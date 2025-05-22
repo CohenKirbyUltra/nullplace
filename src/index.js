@@ -27,7 +27,7 @@ document.body.addEventListener("click", async () => {
                 {
                     fill: "forwards",
                     easing: "steps(4, end)",
-                    duration: 1,
+                    duration: 1
                 }
             );
             DOMPlease.remove();
