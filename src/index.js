@@ -2,8 +2,12 @@
 
 var darkmode;
 
-function updateScheme() {
-    darkmode = localStorage.getItem("darkmode");
+function updateScheme(bool) {
+    if (bool) {
+        darkmode = localStorage.getItem("darkmode");
+    } else {
+        darkmode = false;
+    }
 
     let all = document.querySelectorAll("*");
 
@@ -22,11 +26,11 @@ var DOMLoaded = false;
 
 var Music = new Audio();
 
-if (localStorage.getItem("darkmode").length > 0) {
-    updateScheme();
+if (localStorage.getItem("darkmode") !== undefined || localStorage.getItem("darkmode") !== null) {
+    updateScheme(false);
 } else {
     localStorage.setItem("darkmode", false);
-    updateScheme();
+    updateScheme(true);
 }
 
 Music.src = "src/audio/lostandalone.mp3";
@@ -59,4 +63,18 @@ document.body.addEventListener("click", async () => {
         }
 });
 
-document.getElementById("darkmode").addEventListener("click", updateScheme);
+var change = false;
+
+const darkimg = document.getElementById("img-darkmode");
+
+document.getElementById("darkmode").addEventListener("click", function () {
+    if (!change) { 
+        darkmode = true;
+        darkimg.src = "src/images/svg/Moon.svg";
+        localStorage.setItem("darkmode", true);
+    } else {
+        darkmode = false;
+        darkimg.src = "src/images/svg/Sun.svg";
+        localStorage.setItem("darkmode", false);
+    }
+});
