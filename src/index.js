@@ -17,11 +17,15 @@ document.body.addEventListener("click", async () => {
         if (!DOMLoaded) {
             DOMLoaded = true;
             Music.play();
-            await DOMPlease.animate([{ opacity: 1 }, { opacity: 2 }],
+            DOMPlease.animate(
+            [
+                { opacity: 1 }, 
+                { opacity: 0 }
+            ],
                 {
                     fill: "forwards",
                     easing: "steps(4, end)",
-                    duration: 1, s,
+                    duration: 1,
                 }
             );
             DOMPlease.remove();
