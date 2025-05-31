@@ -4,7 +4,7 @@ var DOMLoaded = false;
 
 var Music = new Audio();
 
-Music.src = "src/audio/lostmodifications.mp3";
+Music.src = "../src/audio/lostmodifications.mp3";
 Music.volume = 0.23;
 Music.autoplay = true;
 Music.loop = true;
