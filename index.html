@@ -1,9 +1,4 @@
 <html>
-<div id="LoadPlease">
-    <center>
-        <h1>Click to Proceed.</h1>
-    </center>
-</div>
 
 <head>
     <title>My Place</title>
@@ -19,17 +14,35 @@
         }
 
         #LoadPlease {
+            display: flex;
             width: 100%;
             height: 100%;
             background-color: black;
-            color: white;
+            color: #ffffff;
             position: absolute;
-            align-self: center;
+            justify-content: center;
+            align-items: center;
             z-index: 10;
         }
 
-        #LoadPlease * {
+        #LoadPlease div {
             z-index: 11;
+        }
+
+        #LoadPlease h1 {
+            z-index: 12;
+        }
+
+        head {
+            margin: auto;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            place-items: center;
+            justify-content: center;
+            align-items: center;
         }
 
         #main {
@@ -109,9 +122,17 @@
             background-color: #00000055;
         }
     </style>
+
+    <div id="LoadPlease">
+        <center>
+            <h1>Click to Proceed.</h1>
+        </center>
+    </div>
 </head>
 
 <body>
+
+    <div id="menu">
     <center>
         <div id="main">
 
@@ -156,9 +177,9 @@
             </div>
         </div>
     </center>
+    </div>
 
     <script src="src/index.js"></script>
-     <button class="button-item" onclick="window.location.href='pages/modifications.html'">#</button>
 </body>
 
 </html>

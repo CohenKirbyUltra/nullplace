@@ -1,9 +1,4 @@
 <html>
-<div id="LoadPlease">
-    <center>
-        <h1>Click to Proceed.</h1>
-    </center>
-</div>
 
 <head>
     <title>My Mods</title>
@@ -19,17 +14,35 @@
         }
 
         #LoadPlease {
+            display: flex;
             width: 100%;
             height: 100%;
             background-color: black;
-            color: white;
+            color: #ffffff;
             position: absolute;
-            align-self: center;
+            justify-content: center;
+            align-items: center;
             z-index: 10;
         }
 
-        #LoadPlease * {
+        #LoadPlease div {
             z-index: 11;
+        }
+
+        #LoadPlease h1 {
+            z-index: 12;
+        }
+
+        head {
+            margin: auto;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            place-items: center;
+            justify-content: center;
+            align-items: center;
         }
         
         button img {
@@ -113,6 +126,12 @@
             background-color: #00000055;
         }
     </style>
+
+    <div id="LoadPlease">
+        <center>
+            <h1>Click to Proceed.</h1>
+        </center>
+    </div>
 </head>
 
 <body>
@@ -121,7 +140,7 @@
 
             <br>
 
-            <h4 style="color: #aaaaaa;">[ WEBSITE IS VERY WIP. EXPECT UPDATES. ]</h4>
+            <h4 style="color: #aaaaaa;">[ THIS WEBSITE IS VERY WIP. EXPECT UPDATES. ]</h4>
 
             <hr style="width: 80%; margin: 20px;">
 
