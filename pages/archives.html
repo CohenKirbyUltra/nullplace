@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>ARCHIVES</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ede;
+        }
+
+        #mods {
+            justify-content: center;
+            align-content: center;
+            gap: 20px;
+            border-radius: 8px;
+            border-width: 4px;
+            border: dotted;
+            border-color: #bbb;
+            background-color: #ddd;
+            color: #999;
+            width: max-content;
+            height: max-content;
+            padding: 30px 30px;
+        }
+
+        #mods button {
+            gap: 20px;
+        }
+
+        #mods button:disabled {
+            opacity: 0.5;
+            border: none;
+            border-radius: 8px;
+            background-color: #666;
+            width: 50px;
+            height: 50px;
+            transform: scale(1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #mods button:enabled {
+            opacity: 1;
+            border: none;
+            border-radius: 8px;
+            background-color: #666;
+            width: 50px;
+            height: 50px;
+            transform: scale(1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #mods button:hover {
+            transform: scale(1.2);
+        }
+
+        #modscriptions {
+            opacity: 0;
+            color: black;
+            transition: all 0.1s ease-out;
+        }
+
+        #modscriptions + #mods button:hover {
+            opacity: 1;
+        }
+
+        .button-item {
+            /* padding: 20px; */
+            text-align: center;
+            align-items: center;
+            border-style: solid;
+            font-size: x-small;
+            background-color: black;
+            border-radius: 0;
+            color: white;
+            width: 110px;
+            margin: 4;
+            height: 35px;
+            gap: 10px;
+            transition: background-color 0.3s, border-radius 0.3s;
+        }
+
+        .button-item:hover {
+            background-color: rgb(50, 50, 50);
+            border-radius: 4px;
+        }
+
+        #LoadPlease {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            color: #ffffff;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        #LoadPlease div {
+            z-index: 11;
+        }
+
+        #LoadPlease h1 {
+            z-index: 12;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="LoadPlease">
+        <center>
+            <h1>Click to Proceed.</h1>
+        </center>
+    </div>
+    <center>
+        <h1>~ ARCHIVES ~</h1>
+
+        <hr>
+
+        <p>archives for found versions of recovered mods that were wiped by --------</p>
+
+        <hr>
+
+        <div id="modscriptions" class="descriptional">
+            <h5 id="myName">Placeholder</h5>
+            <h6 id="myDesc">Archive Description</h6>
+        </div>
+
+        <hr>
+
+        <div id="mods">
+        </div>
+
+        <hr>
+
+        <button onclick="window.location.href='../index.html'">
+            Back
+        </button>
+
+        <script src="src/archives.js"></script>
+        <script src="src/index.js"></script>
+        <script type="text/javascript">
+            const Loadup = document.getElementById("LoadPlease");
+
+            window.SFX = {
+                sounds: {},
+                load(name, src) {
+                    const audio = new Audio(src);
+                    this.sounds[name] = audio;
+                },
+                play(name) {
+                    if (this.sounds[name]) {
+                        const audio = this.sounds[name].cloneNode();
+                        audio.play();
+                    }
+                }
+            };
+
+            window.playSFX = function (name) {
+                window.SFX.play(name);
+            };
+
+            window.SFX.load('proceeded', '../src/sfx/ctc.wav');
+            window.SFX.load('transition', '../src/sfx/transition.wav');
+            window.SFX.load('click', '../src/sfx/click.wav');
+            window.SFX.load('hover1', '../src/sfx/hover_b.wav');
+            window.SFX.load('info', '../src/sfx/info.wav');
+
+
+            document.addEventListener("click", function (e) {
+                if (e.target.closest("button")) {
+                    playSFX('click');
+                }
+            });
+
+            document.addEventListener("mouseover", function (e) {
+                const button = e.target.closest("button");
+                if (button) {
+                    if (!button.querySelector("img")) {
+                        playSFX('hover1');
+                    }
+                }
+            });
+
+            document.getElementById("LoadPlease").addEventListener("click", function (e) {
+                playSFX('transition');
+            });
+        </script>
+
+    </center>
+</body>
+
+</html>

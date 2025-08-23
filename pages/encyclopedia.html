@@ -1,0 +1,304 @@
+<html>
+
+<head>
+    <title>-- INFO --</title>
+    <style>
+        * {
+            font-family: monospace, auto;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        html {
+            background-color: grey;
+        }
+
+        #LoadPlease {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            color: #ffffff;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        #LoadPlease div {
+            z-index: 11;
+        }
+
+        #LoadPlease h1 {
+            z-index: 12;
+        }
+
+        head {
+            margin: auto;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            place-items: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #main {
+            border: solid;
+            border-radius: 32px;
+            border-width: 4px;
+            border-color: #b7afaf;
+            background-color: white;
+            width: 6.4in;
+            height: 6.7in;
+        }
+
+        #innerMain {
+            width: 70%;
+            max-width: 70%;
+            height: 60%;
+            border: solid;
+            border-radius: 2px;
+            border-width: 3px;
+            border-color: #585858;
+            background-color: #cfd4c3;
+            filter: drop-shadow(0px 20px 5mm #000000cf);
+            min-inline-size: 80%;
+        }
+
+        #innerMain p {
+            color: #424242;
+            font-size: 15px;
+        }
+
+        /* Grid */
+        .grid-container {
+            text-align: center;
+            align-items: center;
+            display: grid;
+        }
+
+        .grid-item {
+            text-align: -webkit-center;
+            align-items: start;
+            padding: inherit;
+            height: 100%;
+        }
+
+        .button-item {
+            /* padding: 20px; */
+            text-align: center;
+            align-items: center;
+            border-style: solid;
+            font-size: x-small;
+            background-color: black;
+            border-radius: 0;
+            color: white;
+            width: 110px;
+            margin: 4;
+            height: 35px;
+            gap: 10px;
+            transition: background-color 0.3s, border-radius 0.3s;
+        }
+
+        .button-item:hover {
+            background-color: rgb(50, 50, 50);
+            border-radius: 4px;
+        }
+
+        hr {
+            display: -webkit-box;
+            position: relative;
+            padding: 1px;
+            margin: auto;
+            height: 1px;
+            max-height: 1px;
+            font-size: 1px;
+            clear: both;
+            border: none;
+            border-width: 2px;
+            background-color: #00000055;
+        }
+
+        .character-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-items: center;
+            align-items: center;
+            gap: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            width: max-content;
+            height: max-content;
+        }
+
+        .character-buttons button {
+            position: relative;
+            padding: 0;
+            border-radius: 5px;
+            border: none;
+            background: #eee;
+            cursor: pointer;
+            width: 45px;
+            height: 45px;
+            transition: transform 0.3s, background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .character-buttons button:hover {
+            background: #ddd;
+            transform: scale(1.22);
+        }
+
+        .character-buttons button img {
+            width: 75%;
+            height: 75%;
+        }
+
+        .info-sheet::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 10px;
+            border-style: solid;
+            border-color: #fff transparent transparent transparent;
+        }
+
+        .info-sheet {
+            display: block;
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            z-index: 1000;
+            width: 300px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translate(-50%, -20%) scale(0.95);
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .info-sheet.visible {
+            opacity: 1;
+            transform: translate(-50%, 0) scale(1);
+            pointer-events: auto;
+        }
+
+        .info-sheet img {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <div id="LoadPlease">
+        <center>
+            <h1>Click to Proceed.</h1>
+        </center>
+    </div>
+</head>
+
+<script src="src/knowledge.js"></script>
+
+<body>
+    <div id="menu">
+        <center>
+            <div id="main">
+                <br />
+
+                <h4 style="color: #aaaaaa">
+                    [ WEBSITE IS VERY WIP. EXPECT UPDATES. ]
+                </h4>
+
+                <hr style="width: 80%; margin: 20px" />
+
+                <div id="innerMain">
+                    <h1>Character List</h1>
+                    <div class="character-buttons" id="characterButtons"></div>
+                    <div class="info-sheet" id="infoSheet">
+                        <img id="charImg" src="" alt="" />
+                        <h2 id="charName"></h2>
+                        <p id="charDesc"></p>
+                        <button onclick="closeSheet()">Close</button>
+                    </div>
+                </div>
+
+                <br>
+
+                <hr>
+
+                <button class="button-item" onclick="window.location.href='../index.html'">
+                    Back
+                </button>
+            </div>
+        </center>
+    </div>
+
+    <script src="src/index.js"></script>
+
+    <script>
+        const characters = [
+            {
+                name: "Alice",
+                image: "../src/imgs/deada.png",
+                description: "Alice is a brave adventurer from Nullplace.",
+            },
+            {
+                name: "Bob",
+                image: "../src/imgs/deada.png",
+                description: "Bob is a skilled engineer with a mysterious past.",
+            },
+            {
+                name: "Cleo",
+                image: "../src/imgs/deada.png",
+                description: "Cleo is a wise sage who guides the group.",
+            },
+            // Add more characters as needed
+        ];
+
+        const buttonsDiv = document.getElementById("characterButtons");
+        const infoSheet = document.getElementById("infoSheet");
+        const charImg = document.getElementById("charImg");
+        const charName = document.getElementById("charName");
+        const charDesc = document.getElementById("charDesc");
+
+        characters.forEach((char, idx) => {
+            const btn = document.createElement("button");
+            const img = document.createElement("img");
+
+            img.src = char.image;
+            img.style.width = "100%";
+            img.style.height = "100%";
+
+            btn.appendChild(img);
+
+            btn.style.alignItems = "center";
+            btn.style.justifyContent = "center";
+            btn.onclick = () => {
+                charImg.src = char.image;
+                charImg.alt = char.name;
+                charName.textContent = char.name;
+                charDesc.textContent = char.description;
+                infoSheet.classList.add("visible");
+            };
+
+            buttonsDiv.appendChild(btn);
+        });
+
+        function closeSheet() {
+            infoSheet.classList.remove("visible");
+        }
+    </script>
+</body>
+
+</html>
