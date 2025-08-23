@@ -134,7 +134,6 @@ Object.entries(mods).forEach(([groupName, modArray]) => {
         groupDiv.appendChild(btn);
     });
 
-    // Add group to main container
     modContainer.appendChild(groupDiv);
     modContainer.appendChild(hr);
 });

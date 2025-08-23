@@ -1,25 +1,10 @@
-// this script makes the lists used in the htmls. like archives, clopedia, etc.
-
 var characters = [
   {
     id: 1,
-    name: 'Alice',
-    image: 'https://via.placeholder.com/150',
-    description: 'Alice is a brave adventurer from Nullplace.',
+    name: 'Test',
+    image: '',
+    description: 'test',
   },
-  {
-    id: 2,
-    name: 'Bob',
-    image: 'https://via.placeholder.com/150',
-    description: 'Bob is a skilled engineer with a mysterious past.',
-  },
-  {
-    id: 3,
-    name: 'Cleo',
-    image: 'https://via.placeholder.com/150',
-    description: 'Cleo is a wise sage who guides the group.',
-  },
-
 ];
 
 function CharacterInfoSheet({ character, onClose }) {
