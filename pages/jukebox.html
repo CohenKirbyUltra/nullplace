@@ -27,6 +27,8 @@
                 <button id="play">Play</button>
                 <button id="next"></button>
             </div>
+
+            <input type="range" id="length" />
             <p id="test">cur</p>
         </div>
     </div>
@@ -135,7 +137,7 @@
     const titleText = document.getElementById("Title");
     const composerText = document.getElementById("compose");
     const descript = document.getElementById("description");
-
+    const lengthh = document.getElementById("length");
 
     var cur = 0;
 
@@ -163,11 +165,17 @@
             titleText.innerHTML = "____";
             composerText.innerHTML = "____";
             descript.innerHTML = "____";
+            lengthh.min = 0;
+            lengthh.max = 0;
+            lengthh.value = 0;
             audio.currentTime = 0;
             audio.pause();            
         } else {
             audio.src = music[cur].src;
             document.getElementById("nowplay").innerHTML = `- NOW PLAYING : ${music[cur].name} -`;
+
+            lengthh.min = 0;
+            lengthh.max = audio.length;
 
             titleText.innerHTML = music[cur].title;
             composerText.innerHTML = music[cur].composer;
@@ -180,6 +188,14 @@
                     window.location.reload();
                 }, 500);
             }
+        }
+    }
+
+    while (true) {
+        if (audio.paused) {
+            lengthh.value = 0;
+        } else {
+            length.value = audio.currentTime;
         }
     }
 
