@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Jukebox</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../src/jukebox.css'>
+</head>
+<div id="LoadPlease">
+    <center>
+        <h1>Click to Proceed.</h1>
+    </center>
+</div>
+<center>
+    <div id="main">
+        <div id="innerMain">
+            <marquee id="nowplay">- Not Playing -</marquee>
+            <hr>
+            <br>
+            <h3 id="Title">____</h3>
+            <h3 id="compose">____</h3>
+            <h4 id="description">____</h4>
+            <div>
+                <button id="previous"></button>
+                <button id="play">Play</button>
+                <button id="next"></button>
+            </div>
+            <p id="test">cur</p>
+        </div>
+    </div>
+
+            <hr>
+
+            <button class="button-item" onclick="window.location.href='../index.html'">Back</button>
+</center>
+<script src="../src/index.js"></script>
+<script>
+    const music = [
+        {
+            name: "atmo",
+            title: "atmo",
+            composer: "null",
+            description: "calm",
+            src: "../src/audio/jukebox/atmo.mp3"
+        },
+        {
+            name: "sea",
+            title: "the sea",
+            composer: "null",
+            description: "waves",
+            src: "../src/audio/jukebox/sea.mp3"
+        },
+        {
+            name: "The hole i found outside",
+            title: "The hole i found outside",
+            composer: "null",
+            description: "found it bottomless",
+            src: "../src/audio/jukebox/Theholeifoundoutside.mp3"
+        },
+        {
+            name: "window",
+            title: "Window",
+            composer: "null",
+            description: "light shine",
+            src: "../src/audio/jukebox/window.mp3"
+        },
+        {
+            name: "hh",
+            title: "aaa",
+            composer: "croakr",
+            description: "bbbebebehehehebebebbeh",
+            src: "../src/audio/jukebox/hh.mp3"
+        },
+        {
+            name: "som",
+            title: "som",
+            composer: "anom",
+            description: "???",
+            src: "../src/audio/jukebox/som.mp3"
+        },
+        {
+            name: "harsh",
+            title: "HarshLove",
+            composer: "Fendo123",
+            description: "'Small'",
+            src: "../src/audio/jukebox/HarshLove.wav"
+        },
+        {
+            name: "decadent",
+            title: "Decadent",
+            composer: "onisethe",
+            description: "'more beats'",
+            src: "../src/audio/jukebox/Decadent.mp3"
+        },
+        {
+            name: "k",
+            title: "k",
+            composer: "FeralCariol",
+            description: "'ble'",
+            src: "../src/audio/jukebox/k.wav"
+        },
+        {
+            name: "amb",
+            title: "Ambience",
+            composer: "Minecrafter0986",
+            description: "'I did this'",
+            src: "../src/audio/jukebox/HarshLove.wav"
+        },
+        {
+            name: "amb2",
+            title: "Ambient 2",
+            composer: "overbyte",
+            description: "I like this one",
+            src: "../src/audio/jukebox/Ambient2.mp3"
+        },
+        {
+            name: ":(",
+            title: ":(",
+            composer: "----",
+            description: "why did they do that to you",
+            src: "../src/audio/jukebox/i love you.mp3"
+        }
+    ]
+
+    const prev = document.getElementById("previous");
+    prev.innerHTML = "<-";
+
+    const playbtn = document.getElementById("play");
+
+    const next = document.getElementById("next");
+    next.innerHTML = "->";
+
+    const titleText = document.getElementById("Title");
+    const composerText = document.getElementById("compose");
+    const descript = document.getElementById("description");
+
+
+    var cur = 0;
+
+    const audio = new Audio();
+    audio.volume = 0.35;
+    audio.src = music[cur].src;
+    audio.loop = true;
+
+    var shouldpause = false;
+
+    setInterval(() => {
+        shouldpause = !audio.paused;
+        playbtn.innerHTML = !audio.paused ? "Stop" : "Play";
+    }, 100);
+
+    music.forEach(element => {
+        audio.load(element.src);
+    });
+
+    function playMusic() {
+        if (shouldpause) {
+            audio.src = music[cur].src;
+            document.getElementById("nowplay").innerHTML = `- Not Playing -`;
+
+            titleText.innerHTML = "____";
+            composerText.innerHTML = "____";
+            descript.innerHTML = "____";
+            audio.currentTime = 0;
+            audio.pause();            
+        } else {
+            audio.src = music[cur].src;
+            document.getElementById("nowplay").innerHTML = `- NOW PLAYING : ${music[cur].name} -`;
+
+            titleText.innerHTML = music[cur].title;
+            composerText.innerHTML = music[cur].composer;
+            descript.innerHTML = music[cur].description;
+
+            audio.play();
+
+            if (music[cur].name == ":(") {
+                setTimeout(() => {
+                    window.location.reload();
+                }, 500);
+            }
+        }
+    }
+
+    prev.addEventListener("click", () => {
+        cur -= 1
+        if (cur == -1) {
+            cur = 0;
+        }
+        document.getElementById("test").innerHTML = cur;
+    });
+
+    next.addEventListener("click", () => {
+        cur += 1
+        if (cur == music.length) {
+            cur -= 1
+        }
+        document.getElementById("test").innerHTML = cur;
+    });
+
+    playbtn.addEventListener("click", playMusic);
+</script>
+</body>
+
+</html>
