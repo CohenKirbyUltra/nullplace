@@ -177,7 +177,6 @@
             document.getElementById("nowplay").innerHTML = `- NOW PLAYING : ${music[cur].name} -`;
 
             lengthh.min = 0;
-            lengthh.max = audio.duration;
 
             titleText.innerHTML = music[cur].title;
             composerText.innerHTML = music[cur].composer;
@@ -197,6 +196,7 @@
         if (audio.paused) {
             lengthh.value = 0;
         } else {
+            lengthh.max = audio.duration;
             lengthh.value = audio.currentTime;
         }
     }, 100);
