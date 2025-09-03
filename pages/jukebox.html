@@ -191,13 +191,28 @@
         }
     }
 
-    while (true) {
+    setInterval(function() {
         if (audio.paused) {
             lengthh.value = 0;
         } else {
             length.value = audio.currentTime;
         }
-    }
+    }, 100);
+
+    var lengthheld = false;
+    lengthh.addEventListener("mousedown", () => {
+        lengthheld = true;
+    });
+
+    lengthh.addEventListener("mousemove", () => {
+        if (lengthheld) {
+            audio.currentTime = lengthh.value;
+        }
+    });
+
+    lengthh.addEventListener("mouseup", () => {
+        lengthheld = false;
+    });
 
     prev.addEventListener("click", () => {
         cur -= 1
