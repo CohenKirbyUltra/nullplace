@@ -3,14 +3,20 @@
         <title>It is soon</title>
         <style>
             body {
-                background-image: src("src/imgs/find.png");
+                background-color: black;
                 color: red;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
             }
         </style>
     </head>
 
     <body>
         <h1>Hello World!</h1>
+        <img src="src/imgs/find.png">
         <script>
             var Music = new Audio();
 
@@ -18,6 +24,11 @@
             Music.volume = 0.23;
             Music.autoplay = true;
             Music.loop = true;
+
+            var event = document.body.addEventListener("click", async () => {
+                Music.play()
+                event = "";
+            });
         </script>
     </body>
 </html>
