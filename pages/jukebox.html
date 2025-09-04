@@ -183,6 +183,13 @@
     audio.src = music[cur].src;
     audio.loop = true;
 
+    var audioTime = {
+        curSeconds: "",
+        curMinutes: "",
+        durationSec: "",
+        durationMin: ""
+    }
+
     var shouldpause = false;
 
     setInterval(() => {
@@ -232,15 +239,13 @@
         }
     }
 
-
-
     function checkAudio() {
         if (audio.src !== "") {
-            audio.seconds = Math.round(audio.currentTime) < 10 ? `${Math.round(audio.currentTime)}0` : `${Math.round(audio.currentTime)}`;
-            audio.minutes = Math.round(audio.currentTime / 60) < 10 ? `0${Math.round(audio.currentTime / 60)}` : `${Math.round(audio.currentTime / 60)}`;
+            audioTime.curSeconds = Math.round(audio.currentTime) < 10 ? `0${Math.round(audio.currentTime)}` : `${Math.round(audio.currentTime)}`;
+            audioTime.curMinutes = Math.round(audio.currentTime / 60) < 10 ? `0${Math.round(audio.currentTime / 60)}` : `${Math.round(audio.currentTime / 60)}`;
 
-            audio.duration.seconds = Math.round(audio.duration) < 10 ? `${Math.round(audio.duration)}0` : `${Math.round(audio.duration)}`;
-            audio.duration.minutes = Math.round(audio.duration / 60) < 10 ? `0${Math.round(audio.duration / 60)}` : `${Math.round(audio.duration / 60)}`;
+            audioTime.durationSec = Math.round(audio.duration) < 10 ? `0${Math.round(audio.duration)}` : `${Math.round(audio.duration)}`;
+            audioTime.durationMin = Math.round(audio.duration / 60) < 10 ? `0${Math.round(audio.duration / 60)}` : `${Math.round(audio.duration / 60)}`;
         }
     }
 
@@ -254,8 +259,8 @@
         } else {
             lengthh.max = audio.duration;
             lengthh.value = audio.currentTime;
-            starttime.innerHTML = `${audio.minutes}:${audio.seconds}`;
-            endtime.innerHTML = `${audio.duration.minutes}:${audio.duration.seconds}`;
+            starttime.innerHTML = `${audioTime.curMinutes}:${audioTime.curSeconds}`;
+            endtime.innerHTML = `${audioTime.durationMin}:${audioTime.durationSec}`;
         }
     }, 100);
 
