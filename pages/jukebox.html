@@ -28,7 +28,8 @@
                 <button id="next"></button>
             </div>
 
-            <input type="range" id="length" />
+            <label id="startt">0:00</label><input type="range" id="length" /><label id="endd">0:00</label>
+            
             <p id="test">cur</p>
         </div>
     </div>
@@ -170,6 +171,9 @@
     const descript = document.getElementById("description");
     const lengthh = document.getElementById("length");
 
+    const starttime = document.getElementById("startt");
+    const endtime = document.getElementById("endd");
+
     lengthh.step = 0.05
 
     var cur = 0;
@@ -200,11 +204,14 @@
             titleText.innerHTML = "____";
             composerText.innerHTML = "____";
             descript.innerHTML = "____";
+
             lengthh.min = 0;
             lengthh.max = 0;
             lengthh.value = 0;
+
             audio.currentTime = 0;
             audio.pause();
+
         } else {
             audio.src = music[cur].src;
             document.getElementById("nowplay").innerHTML = `- NOW PLAYING : ${music[cur].name} -`;
@@ -225,12 +232,22 @@
         }
     }
 
+    audio.seconds = Math.round(audio.currentTime);
+    audio.minutes = Math.round(audio.currentTime / 60);
+
+    audio.duration.seconds = Math.round(audio.duration);
+    audio.duration.minutes = Math.round(audio.duration / 60);
+
     setInterval(function () {
         if (audio.paused) {
             lengthh.value = 0;
+            starttime.innerHTML = "-:--";
+            endtime.innerHTML = "-:--";
         } else {
             lengthh.max = audio.duration;
             lengthh.value = audio.currentTime;
+            starttime = `${audio.minutes}:${audio.seconds}`;
+            endtime = `${audio.duration.minutes}:${audio.duration.seconds}`;
         }
     }, 100);
 
