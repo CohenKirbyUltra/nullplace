@@ -39,6 +39,30 @@
 </center>
 <script src="../src/index.js"></script>
 <script>
+    const isMobile = {
+        Android: function() {
+            return navigator.userAgent.match(/Android/i);
+        },
+        BlackBerry: function() {
+            return navigator.userAgent.match(/BlackBerry/i);
+        },
+        iOS: function() {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Opera: function() {
+            return navigator.userAgent.match(/Opera Mini/i);
+        },
+        Windows: function() {
+            return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
+        },
+        any: function() {
+            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+        },
+        mobile: function() {
+            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera());
+        }
+    }
+
     const music = [
         {
             name: "atmo",
@@ -166,6 +190,8 @@
         audio.load(element.src);
     });
 
+    
+
     function playMusic() {
         if (shouldpause) {
             audio.src = music[cur].src;
@@ -209,19 +235,36 @@
     }, 100);
 
     var lengthheld = false;
-    lengthh.addEventListener("mousedown", () => {
-        lengthheld = true;
-    });
 
-    lengthh.addEventListener("mousemove", () => {
-        if (lengthheld) {
-            audio.currentTime = lengthh.value;
-        }
-    });
+    if (isMobile.any()) {
+        lengthh.addEventListener("touchstart", () => {
+            lengthheld = true;
+        });
 
-    lengthh.addEventListener("mouseup", () => {
-        lengthheld = false;
-    });
+        lengthh.addEventListener("touchmove", () => {
+            if (lengthheld) {
+                audio.currentTime = lengthh.value;
+            }
+        });
+
+        lengthh.addEventListener("touchend", () => {
+            lengthheld = false;
+        });
+    } else {
+        lengthh.addEventListener("mousedown", () => {
+            lengthheld = true;
+        });
+
+        lengthh.addEventListener("mousemove", () => {
+            if (lengthheld) {
+                audio.currentTime = lengthh.value;
+            }
+        });
+
+        lengthh.addEventListener("mouseup", () => {
+            lengthheld = false;
+        });
+    }
 
     prev.addEventListener("click", () => {
         cur -= 1
