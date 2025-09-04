@@ -236,7 +236,8 @@
 
     var lengthheld = false;
 
-    if (isMobile.any()) {
+        // Mobile
+
         lengthh.addEventListener("touchstart", () => {
             lengthheld = true;
         });
@@ -250,7 +251,9 @@
         lengthh.addEventListener("touchend", () => {
             lengthheld = false;
         });
-    } else {
+
+        // PC
+        
         lengthh.addEventListener("mousedown", () => {
             lengthheld = true;
         });
@@ -264,7 +267,6 @@
         lengthh.addEventListener("mouseup", () => {
             lengthheld = false;
         });
-    }
 
     prev.addEventListener("click", () => {
         cur -= 1
