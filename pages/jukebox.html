@@ -261,14 +261,13 @@
         return `${minutes < 10 ? '0' : ''}${minutes}:${secs < 10 ? '0' : ''}${secs}`;
     }
 
-    endtime.innerHTML = "--:--";
-
     setInterval(function () {
         checkAudio();
 
         if (audio.paused) {
             lengthh.value = 0;
             starttime.innerHTML = "--:--";
+            endtime.innerHTML = "--:--";
         } else {
             lengthh.max = audio.duration;
             lengthh.value = audio.currentTime;
@@ -330,7 +329,6 @@
 
         audio.src = music[cur].src;
         document.getElementById("test").innerHTML = `- ${music[cur].name} -`;
-        endtime.innerHTML = `${formatTime(audio.duration)}`;
     });
 
     playbtn.addEventListener("click", playMusic);
