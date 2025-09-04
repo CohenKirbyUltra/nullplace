@@ -33,32 +33,32 @@
         </div>
     </div>
 
-            <hr>
+    <hr>
 
-            <button class="button-item" onclick="window.location.href='../index.html'">Back</button>
+    <button class="button-item" onclick="window.location.href='../index.html'">Back</button>
 </center>
 <script src="../src/index.js"></script>
 <script>
     const isMobile = {
-        Android: function() {
+        Android: function () {
             return navigator.userAgent.match(/Android/i);
         },
-        BlackBerry: function() {
+        BlackBerry: function () {
             return navigator.userAgent.match(/BlackBerry/i);
         },
-        iOS: function() {
+        iOS: function () {
             return navigator.userAgent.match(/iPhone|iPad|iPod/i);
         },
-        Opera: function() {
+        Opera: function () {
             return navigator.userAgent.match(/Opera Mini/i);
         },
-        Windows: function() {
+        Windows: function () {
             return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
         },
-        any: function() {
+        any: function () {
             return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
         },
-        mobile: function() {
+        mobile: function () {
             return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera());
         }
     }
@@ -190,7 +190,7 @@
         audio.load(element.src);
     });
 
-    
+
 
     function playMusic() {
         if (shouldpause) {
@@ -204,7 +204,7 @@
             lengthh.max = 0;
             lengthh.value = 0;
             audio.currentTime = 0;
-            audio.pause();            
+            audio.pause();
         } else {
             audio.src = music[cur].src;
             document.getElementById("nowplay").innerHTML = `- NOW PLAYING : ${music[cur].name} -`;
@@ -225,7 +225,7 @@
         }
     }
 
-    setInterval(function() {
+    setInterval(function () {
         if (audio.paused) {
             lengthh.value = 0;
         } else {
@@ -236,37 +236,37 @@
 
     var lengthheld = false;
 
-        // Mobile
+    // Mobile
 
-        lengthh.addEventListener("touchstart", () => {
-            lengthheld = true;
-        });
+    lengthh.addEventListener("touchstart", () => {
+        lengthheld = true;
+    });
 
-        lengthh.addEventListener("touchmove", () => {
-            if (lengthheld) {
-                audio.currentTime = lengthh.value;
-            }
-        });
+    lengthh.addEventListener("touchmove", () => {
+        if (lengthheld) {
+            audio.currentTime = lengthh.value;
+        }
+    });
 
-        lengthh.addEventListener("touchend", () => {
-            lengthheld = false;
-        });
+    lengthh.addEventListener("touchend", () => {
+        lengthheld = false;
+    });
 
-        // PC
-        
-        lengthh.addEventListener("mousedown", () => {
-            lengthheld = true;
-        });
+    // PC
 
-        lengthh.addEventListener("mousemove", () => {
-            if (lengthheld) {
-                audio.currentTime = lengthh.value;
-            }
-        });
+    lengthh.addEventListener("mousedown", () => {
+        lengthheld = true;
+    });
 
-        lengthh.addEventListener("mouseup", () => {
-            lengthheld = false;
-        });
+    lengthh.addEventListener("mousemove", () => {
+        if (lengthheld) {
+            audio.currentTime = lengthh.value;
+        }
+    });
+
+    lengthh.addEventListener("mouseup", () => {
+        lengthheld = false;
+    });
 
     prev.addEventListener("click", () => {
         cur -= 1
