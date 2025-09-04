@@ -246,8 +246,8 @@
         } else {
             lengthh.max = audio.duration;
             lengthh.value = audio.currentTime;
-            starttime = `${audio.minutes}:${audio.seconds}`;
-            endtime = `${audio.duration.minutes}:${audio.duration.seconds}`;
+            starttime.innerHTML = `${audio.minutes}:${audio.seconds}`;
+            endtime.innerHTML = `${audio.duration.minutes}:${audio.duration.seconds}`;
         }
     }, 100);
 
