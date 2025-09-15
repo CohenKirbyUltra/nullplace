@@ -44,7 +44,7 @@
         var moved = false;
 
         function check() {
-            if (localStorage.getItem("seeyou") === null) {
+            if (localStorage.getItem("seeyou") === null || localStorage.getItem("seeyou") === 'null') {
                 return '';
             } else {
                 document.getElementById("hid").remove();
