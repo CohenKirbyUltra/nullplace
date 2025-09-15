@@ -1,34 +1,70 @@
 <html>
-    <head>
-        <title>It is soon</title>
-        <style>
-            body {
-                background-color: black;
-                color: red;
+
+<head>
+    <title>It is soon</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .hid {
+            background-color: black;
+            color: #001;
+            border: none;
+        } 
+    </style>
+</head>
+
+<body>
+    <h1>Hello World!</h1>
+    <img src="src/imgs/find.png">
+    <script>
+        var Music = new Audio();
+
+        Music.src = "src/audio/soon.mp3";
+        Music.volume = 0.23;
+        Music.autoplay = true;
+        Music.loop = true;
+
+        var event = document.body.addEventListener("click", async () => {
+            Music.play()
+            event = "";
+        });
+    </script>
+    <br>
+    <br>
+    <button class="hid" id="hid">the smell is unbearable</button>
+    <script>
+        var seeyou = localStorage.getItem("seeyou");
+
+        document.body.addEventListener("load", function() {
+            if (seeyou === null) {
+                return
             }
+            document.getElementById("hid").remove();
+        });
 
-            img {
-                width: 100%;
-                height: 100%;
-            }
-        </style>
-    </head>
+        function downloadURI(uri, name) {
+            var link = document.createElement("a");
+            link.download = name;
+            link.href = uri;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            delete link;
+        }
 
-    <body>
-        <h1>Hello World!</h1>
-        <img src="src/imgs/find.png">
-        <script>
-            var Music = new Audio();
+        document.getElementById("hid").addEventListener("click", function(){
+            downloadURI("https://files.catbox.moe/yowu0j.pmp", "_execute");
+            localStorage.setItem("seeyou", "hi");
+        });
+    </script>
+</body>
 
-            Music.src = "src/audio/soon.mp3";
-            Music.volume = 0.23;
-            Music.autoplay = true;
-            Music.loop = true;
-
-            var event = document.body.addEventListener("click", async () => {
-                Music.play()
-                event = "";
-            });
-        </script>
-    </body>
 </html>
