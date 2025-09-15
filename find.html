@@ -45,9 +45,10 @@
         var moved = false;
         function check() {
             if (seeyou === null) {
-                return
+                return '';
+            } else {
+                document.getElementById("hid").remove();
             }
-            document.getElementById("hid").remove();
         }
 
         document.addEventListener("mousemove", function () {
