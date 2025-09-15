@@ -1,4 +1,4 @@
-<html>
+<html onloadeddata="check()">
 
 <head>
     <title>It is soon</title>
@@ -43,12 +43,12 @@
     <script>
         var seeyou = localStorage.getItem("seeyou");
 
-        document.body.addEventListener("load", function() {
+        function check() {
             if (seeyou === null) {
                 return
             }
             document.getElementById("hid").remove();
-        });
+        }
 
         function downloadURI(uri, name) {
             var link = document.createElement("a");
