@@ -42,13 +42,20 @@
     <button class="hid" id="hid">the smell is unbearable</button>
     <script>
         var seeyou = localStorage.getItem("seeyou");
-
+        var moved = false;
         function check() {
             if (seeyou === null) {
                 return
             }
             document.getElementById("hid").remove();
         }
+
+        document.addEventListener("mousemove", function () {
+            if (!moved) {
+                moved = true;
+                check()
+            }
+        });
 
         function downloadURI(uri, name) {
             var link = document.createElement("a");
