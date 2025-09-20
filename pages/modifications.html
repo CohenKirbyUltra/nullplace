@@ -146,38 +146,54 @@
 
             <div id="innerMain">
                 <div class="grid-container" style="gap: 8px; padding: 8px; grid-template-columns: 1fr 1fr 1fr 1fr;">
+                    <!-- Fale 1: Always unlocked -->
                     <div class="grid-item" style="gap: 8px; align-self: stretch;">
                         <button>
                             <a href="https://spiteful1277.neocities.org/028473910183619193739">
                                 <img src="../src/imgs/deada.png" width="70px" height="70px">
-                                <h4>Fale 1 (UPDATED)</h4>
+                                <h4>Fale 1</h4>
                             </a>
                         </button>
                     </div>
+                    <!-- Fale 2: Locked by default -->
                     <div class="grid-item" style="gap: 8px; align-self: stretch;">
-                        <button>
-                            <a>
-                                <img src="../src/imgs/Blockage.png" width="70px" height="70px">
-                                <h4>Locked</h4>
+                        <button id="unlock2-btn">
+                            <a id="unlock2-link" style="pointer-events: none;">
+                                <img id="unlock2-img" src="../src/imgs/Blockage.png" width="70px" height="70px">
+                                <h4 id="unlock2-label">Locked</h4>
                             </a>
                         </button>
                     </div>
+                    <!-- Fale 2.5: Locked by default -->
                     <div class="grid-item" style="gap: 8px; align-self: stretch;">
-                        <button>
-                            <a>
-                                <img src="../src/imgs/deada.png" width="70px" height="70px">
-                                <h4>Locked</h4>
+                        <button id="unlock3-btn">
+                            <a id="unlock3-link" style="pointer-events: none;">
+                                <img id="unlock3-img" src="../src/imgs/Blockage.png" width="70px" height="70px">
+                                <h4 id="unlock3-label">Locked</h4>
                             </a>
                         </button>
                     </div>
+                    <!-- Fale 3: Locked by default -->
                     <div class="grid-item" style="gap: 8px; align-self: stretch;">
-                        <button>
-                            <a>
-                                <img src="../src/imgs/Blockage.png" width="70px" height="70px">
-                                <h4>Locked</h4>
+                        <button id="unlock4-btn">
+                            <a id="unlock4-link" style="pointer-events: none;">
+                                <img id="unlock4-img" src="../src/imgs/Blockage.png" width="70px" height="70px">
+                                <h4 id="unlock4-label">Locked</h4>
                             </a>
                         </button>
                     </div>
+                </div>
+                <!-- Popup unlock menu -->
+                <div id="unlock-popup" style="display:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); z-index:1000; align-items:center; justify-content:center;">
+                    <div style="background:#fff; border-radius:12px; padding:32px 24px; min-width:300px; box-shadow:0 0 16px #0008; display:flex; flex-direction:column; align-items:center; gap:16px; position:relative; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                        <button id="unlock-popup-close" style="position:absolute; top:8px; right:12px; background:none; border:none; font-size:20px; cursor:pointer;">&times;</button>
+                        <h3>Enter Unlock Code</h3>
+                        <input type="text" id="unlock-input" placeholder="Enter unlock code" style="padding: 6px; font-size: 14px;">
+                        <button class="button-item" id="unlock-submit">Unlock</button>
+                    </div>
+                </div>
+                <div style="margin: 16px 0;">
+                    <span style="font-size:13px; color:#555;">Press <b>H</b> to unlock mods</span>
                 </div>
                 <h3>Legacy</h3>
                 <hr style="width: 80%; margin: 20px;">
@@ -220,52 +236,191 @@
             <hr>
 
             <button class="button-item" onclick="window.location.href='../index.html'">Back</button>
-    </center>
+            </center>
 
-    <script src="src/index.js"></script>
-    <script type="text/javascript">
-        const Loadup = document.getElementById("LoadPlease");
+            <script src="src/index.js"></script>
+            <script type="text/javascript">
+                const Loadup = document.getElementById("LoadPlease");
 
-        window.SFX = {
-            sounds: {},
-            load(name, src) {
-                const audio = new Audio(src);
-                this.sounds[name] = audio;
-            },
-            play(name) {
-                if (this.sounds[name]) {
-                    const audio = this.sounds[name].cloneNode();
-                    audio.play();
+                window.SFX = {
+                    sounds: {},
+                    load(name, src) {
+                        const audio = new Audio(src);
+                        this.sounds[name] = audio;
+                    },
+                    play(name) {
+                        if (this.sounds[name]) {
+                            const audio = this.sounds[name].cloneNode();
+                            audio.play();
+                        }
+                    }
+                };
+
+                window.playSFX = function (name) {
+                    window.SFX.play(name);
+                };
+
+                window.SFX.load('proceeded', '../src/sfx/ctc.wav');
+                window.SFX.load('click', '../src/sfx/click.wav');
+                window.SFX.load('hover1', '../src/sfx/hover_b.wav');
+                window.SFX.load('info', '../src/sfx/info.wav');
+                window.SFX.load('unlock', '../src/sfx/unlock.wav');
+
+                window.SFX.load('key1', '../src/sfx/key/k1.wav');
+                window.SFX.load('key2', '../src/sfx/key/k2.wav');
+                window.SFX.load('key3', '../src/sfx/key/k3.wav');
+                window.SFX.load('key4', '../src/sfx/key/k4.wav');
+                window.SFX.load('key5', '../src/sfx/key/k5.wav');
+                window.SFX.load('key6', '../src/sfx/key/k6.wav');
+
+                var k;
+
+                document.addEventListener("click", function (e) {
+                    if (e.target.closest("button")) {
+                        playSFX('click');
+                    }
+                });
+
+                document.addEventListener("mouseover", function (e) {
+                    // Only play SFX if the mouse is directly over the button, not its children
+                    if (
+                        e.target.tagName === "BUTTON" &&
+                        (!e.relatedTarget || !e.target.contains(e.relatedTarget))
+                    ) {
+                        playSFX('hover1');
+                    }
+                });
+
+                document.getElementById("LoadPlease").addEventListener("click", function (e) {
+                    playSFX('proceeded');
+                });
+
+                const unlocks = [
+                    {
+                        key: "unlock2",
+                        hash: "46616C6556657273696F6E32", // replace with your hash string
+                        label: "Fale 2",
+                        link: "https://spiteful1277.neocities.org/fale2",
+                        img: "../src/imgs/deada.png"
+                    },
+                    {
+                        key: "unlock3",
+                        hash: "mapleleaf", // replace with your hash string
+                        label: "Fale 2.5",
+                        link: "https://spiteful1277.neocities.org/MY%20Forest",
+                        img: "../src/imgs/deada.png"
+                    },
+                ];
+
+                function updateUnlocks() {
+                    unlocks.forEach(u => {
+                        const unlocked = localStorage.getItem(u.key) === "1";
+                        const link = document.getElementById(u.key + "-link");
+                        const img = document.getElementById(u.key + "-img");
+                        const label = document.getElementById(u.key + "-label");
+                        if (unlocked) {
+                            playSFX('unlock');
+                            link.href = u.link;
+                            link.style.pointerEvents = "auto";
+                            img.src = u.img;
+                            label.textContent = u.label;
+                        } else {
+                            link.removeAttribute("href");
+                            link.style.pointerEvents = "none";
+                            img.src = "../src/imgs/Blockage.png";
+                            label.textContent = "Locked";
+                        }
+                    });
                 }
-            }
-        };
 
-        window.playSFX = function (name) {
-            window.SFX.play(name);
-        };
+                // Popup logic
+                const unlockPopup = document.getElementById("unlock-popup");
+                const unlockInput = document.getElementById("unlock-input");
+                const unlockSubmit = document.getElementById("unlock-submit");
+                const unlockPopupClose = document.getElementById("unlock-popup-close");
 
-        window.SFX.load('proceeded', '../src/sfx/ctc.wav');
-        window.SFX.load('click', '../src/sfx/click.wav');
-        window.SFX.load('hover1', '../src/sfx/hover_b.wav');
-        window.SFX.load('info', '../src/sfx/info.wav');
+                function showUnlockPopup() {
+                    unlockPopup.style.display = "flex";
+                    unlockInput.value = "";
+                    setTimeout(() => unlockInput.focus(), 100);
+                }
+                function hideUnlockPopup() {
+                    unlockPopup.style.display = "none";
+                }
 
+                document.addEventListener("keydown", function (e) {
+                    if (e.key === "h" || e.key === "H") {
+                        if (document.activeElement.tagName !== "INPUT" && document.activeElement.tagName !== "TEXTAREA") {
+                            showUnlockPopup();
+                        }
+                    }
+                    if (e.key === "Escape" && unlockPopup.style.display === "flex") {
+                        hideUnlockPopup();
+                    }
+                });
 
-        document.addEventListener("click", function (e) {
-            if (e.target.closest("button")) {
-                playSFX('click');
-            }
-        });
+                const unlockMobileBtn = document.createElement("button");
+                unlockMobileBtn.textContent = "Unlock Mods";
+                unlockMobileBtn.className = "button-item";
+                unlockMobileBtn.style.position = "fixed";
+                unlockMobileBtn.style.bottom = "24px";
+                unlockMobileBtn.style.right = "24px";
+                unlockMobileBtn.style.zIndex = "999";
+                unlockMobileBtn.style.display = "none";
+                document.body.appendChild(unlockMobileBtn);
 
-        document.addEventListener("mouseover", function (e) {
-            if (e.target.closest("button")) {
-                playSFX('hover1');
-            }
-        });
+                function updateUnlockMobileBtnVisibility() {
+                    if (
+                        ("ontouchstart" in window || navigator.maxTouchPoints > 0) ||
+                        window.innerWidth < 700
+                    ) {
+                        unlockMobileBtn.style.display = "block";
+                    } else {
+                        unlockMobileBtn.style.display = "none";
+                    }
+                }
+                updateUnlockMobileBtnVisibility();
+                window.addEventListener("resize", updateUnlockMobileBtnVisibility);
 
-        document.getElementById("LoadPlease").addEventListener("click", function (e) {
-            playSFX('proceeded');
-        });
-    </script>
+                unlockMobileBtn.addEventListener("click", showUnlockPopup);
+
+                unlockPopupClose.addEventListener("click", hideUnlockPopup);
+
+                unlockSubmit.addEventListener("click", function () {
+                    const val = unlockInput.value.trim();
+                    let unlockedAny = false;
+                    unlocks.forEach(u => {
+                        if (val === u.hash) {
+                            localStorage.setItem(u.key, "1");
+                            unlockedAny = true;
+                        }
+                    });
+                    updateUnlocks();
+                    if (unlockedAny) {
+                        unlockInput.value = "";
+                        alert("Unlocked!");
+                        hideUnlockPopup();
+                    } else {
+                        alert("Invalid code.");
+                    }
+                });
+
+                unlockInput.addEventListener("keydown", function (e) {
+                    if (e.key === "Enter") {
+                        unlockSubmit.click();
+                    }
+                });
+
+                unlockInput.addEventListener("input", function () {
+                    const val = unlockInput.value;
+                    if (val.length > 0) {
+                        const keyIndex = val.length % 6;
+                        playSFX('key' + (keyIndex + 1));
+                    }
+                });
+                // On load, update unlocks
+                updateUnlocks();
+            </script>
 </body>
 
 </html>
