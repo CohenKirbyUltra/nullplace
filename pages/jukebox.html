@@ -74,10 +74,128 @@
         return Math.floor(Math.random() * (max - min)) + min;
     }
 
-    function up() {
         var v = rng(0, 100);
 
-        var music = [
+    var music = [
+        {
+            name: "atmo",
+            title: "atmo",
+            composer: "null",
+            description: "calm",
+            src: "../src/audio/jukebox/atmo.mp3"
+        },
+        {
+            name: "sea",
+            title: "the sea",
+            composer: "null",
+            description: "waves",
+            src: "../src/audio/jukebox/sea.mp3"
+        },
+        {
+            name: "The hole i found outside",
+            title: "The hole i found outside",
+            composer: "null",
+            description: "found it bottomless",
+            src: "../src/audio/jukebox/Theholeifoundoutside.mp3"
+        },
+        {
+            name: "window",
+            title: "Window",
+            composer: "null",
+            description: "light shine",
+            src: "../src/audio/jukebox/window.mp3"
+        },
+        {
+            name: "hh",
+            title: "aaa",
+            composer: "croakr",
+            description: "bbbebebehehehebebebbeh",
+            src: "../src/audio/jukebox/hh.mp3"
+        },
+        {
+            name: "som",
+            title: "som",
+            composer: "anom",
+            description: "???",
+            src: "../src/audio/jukebox/som.mp3"
+        },
+        v !== 100 ? 
+        {
+            name: "peace",
+            title: "peace",
+            composer: "vase",
+            description: ": )",
+            src: "../src/audio/jukebox/peace.mp3"
+        } :
+        // {  
+        //      name:
+        //      title: "my calling over to you, my love"
+        //      composer: "#########"
+        //      description: "#"
+        //      {{{{{}}}}}
+        //  }
+        {
+            name: "-",
+            title: "-- ------- ---- -- ---- -- ----",
+            composer: "---------",
+            description: "-----------------------",
+            src: "../src/audio/jukebox/untitled.mp3"
+        },
+        {
+            name: "harshlove",
+            title: "HarshLove",
+            composer: "Fendo123",
+            description: "'Small'",
+            src: "../src/audio/jukebox/HarshLove.wav"
+        },
+        {
+            name: "decadent",
+            title: "Decadent",
+            composer: "onisethe",
+            description: "'more beats'",
+            src: "../src/audio/jukebox/Decadent.mp3"
+        },
+        {
+            name: "k",
+            title: "k",
+            composer: "FeralCariol",
+            description: "'ble'",
+            src: "../src/audio/jukebox/k.wav"
+        },
+        {
+            name: "amb",
+            title: "Ambience",
+            composer: "Minecrafter0986",
+            description: "'I did this'",
+            src: "../src/audio/jukebox/ambienceorsmth.mp3"
+        },
+        {
+            name: "ambience more",
+            title: "Ambient 2",
+            composer: "overbyte",
+            description: "I like this one",
+            src: "../src/audio/jukebox/Ambient2.mp3"
+        },
+        {
+            name: "gone",
+            title: "Gone",
+            composer: "Daisy",
+            description: "I like this one too",
+            src: "../src/audio/jukebox/Gone.mp3"
+        },
+        {
+            name: ":(",
+            title: ":(",
+            composer: "----",
+            description: "why did they do that to you",
+            src: "../src/audio/jukebox/i love you.mp3"
+        }
+    ];
+
+    function up() {
+        v = rng(0, 100);
+
+        music = [
             {
                 name: "atmo",
                 title: "atmo",
