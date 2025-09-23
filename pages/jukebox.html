@@ -69,6 +69,12 @@
         }
     }
 
+    function rng(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    var v = rng(0, 100);
+
     const music = [
         {
             name: "atmo",
@@ -111,6 +117,28 @@
             composer: "anom",
             description: "???",
             src: "../src/audio/jukebox/som.mp3"
+        },
+        v == 100 ? 
+        {
+            name: "peace",
+            title: "peace",
+            composer: "vase",
+            description: ": )",
+            src: "../src/audio/jukebox/peace.mp3"
+        } :
+        // {  
+        //      name:
+        //      title: "my calling over to you, my love"
+        //      composer: "#########"
+        //      description: "#"
+        //      {{{{{}}}}}
+        //  }
+        {
+            name: "-",
+            title: "-- ------- ---- -- ---- -- ----",
+            composer: "---------",
+            description: "-----------------------",
+            src: "../src/audio/jukebox/untitled.mp3"
         },
         {
             name: "harshlove",
