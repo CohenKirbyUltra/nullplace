@@ -127,16 +127,10 @@
             description: ": )",
             src: "../src/audio/jukebox/peace.mp3"
         } :
-        // {  
-        //      name:
-        //      title: "my calling over to you, my love"
-        //      composer: "#########"
-        //      description: "#"
-        //      {{{{{}}}}}
-        //  }
         {
             name: "-",
             title: "-- ------- ---- -- ---- -- ----",
+            // title: "my calling over to you, my love"
             composer: "---------",
             description: "-----------------------",
             src: "../src/audio/jukebox/untitled.mp3"
@@ -195,9 +189,14 @@
     if (v === 100) {
         alert("");
     }
+    
     function up() {
         v = rng(0, 100);
 
+        if (v === 100) {
+            alert("");
+        }
+        
         music = [
             {
                 name: "atmo",
@@ -248,21 +247,14 @@
                     composer: "vase",
                     description: ": )",
                     src: "../src/audio/jukebox/peace.mp3"
-                } :
-                // {  
-                //      name:
-                //      title: "my calling over to you, my love"
-                //      composer: "#########"
-                //      description: "#"
-                //      {{{{{}}}}}
-                //  }
-                {
+                } : {
                     name: "-",
                     title: "-- ------- ---- -- ---- -- ----",
                     composer: "---------",
                     description: "-----------------------",
                     src: "../src/audio/jukebox/untitled.mp3"
                 },
+
             {
                 name: "harshlove",
                 title: "HarshLove",
@@ -398,6 +390,31 @@
         }
     }
 
+    function change(x) {
+        switch (x) {
+            case "next":
+                cur += 1;
+
+                if (cur === music.length) {
+                    cur -= 1;
+                }
+
+                audio.src = music[cur].src;
+                document.getElementById("test").innerHTML = `- ${music[cur].name} -`;
+                break;
+            case "previous":
+                cur -= 1;
+
+                if (cur === -1) {
+                    cur = 0;
+                }
+
+                audio.src = music[cur].src;
+                document.getElementById("test").innerHTML = `- ${music[cur].name} -`;
+                endtime.innerHTML = `${formatTime(audio.duration)}`;
+        }
+    }
+
     function checkAudio() {
         if (audio.src !== "") {
             audioTime.curSeconds = Math.round(audio.currentTime) < 10 ? `0${Math.round(audio.currentTime)}` : `${Math.round(audio.currentTime)}`;
@@ -465,27 +482,32 @@
     });
 
     prev.addEventListener("click", () => {
-        cur -= 1
-        if (cur == -1) {
-            cur = 0;
-        }
-
-        audio.src = music[cur].src;
-        document.getElementById("test").innerHTML = `- ${music[cur].name} -`;
-        endtime.innerHTML = `${formatTime(audio.duration)}`;
+        change("previous");
         up()
     });
 
     next.addEventListener("click", () => {
-        cur += 1
-        if (cur == music.length) {
-            cur -= 1
-        }
-
-        audio.src = music[cur].src;
-        document.getElementById("test").innerHTML = `- ${music[cur].name} -`;
+        change("next");
         up()
     });
+
+    function onKeyPress(event) {
+        switch (event.key) {
+            case "LeftArrow" || "A":
+                change("previous")
+                up();
+                break;
+            case "RightArrow" || "D":
+                change("next");
+                up();
+                break;
+            case "Space" || "Z":
+                playMusic()
+                break;    
+        }
+    }
+
+    document.addEventListener("keypress", onKeyPress);
 
     playbtn.addEventListener("click", playMusic);
 </script>
