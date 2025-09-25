@@ -196,7 +196,7 @@
         if (v === 100) {
             alert("");
         }
-        
+
         music = [
             {
                 name: "atmo",
@@ -491,7 +491,9 @@
         up()
     });
 
-    function onKeyPress(event) {
+
+
+    document.addEventListener("keydown",  function onKeyPress(event) {
         switch (event.key) {
             case "LeftArrow" || "A":
                 change("previous")
@@ -505,9 +507,7 @@
                 playMusic()
                 break;    
         }
-    }
-
-    document.addEventListener("keypress", onKeyPress);
+    });
 
     playbtn.addEventListener("click", playMusic);
 </script>
