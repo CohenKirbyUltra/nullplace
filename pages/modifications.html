@@ -284,7 +284,6 @@
                 });
 
                 document.addEventListener("mouseover", function (e) {
-                    // Only play SFX if the mouse is directly over the button, not its children
                     if (
                         e.target.tagName === "BUTTON" &&
                         (!e.relatedTarget || !e.target.contains(e.relatedTarget))
@@ -300,15 +299,15 @@
                 const unlocks = [
                     {
                         key: "unlock2",
-                        hash: "46616C6556657273696F6E32", // replace with your hash string
+                        hash: "46616C6556657273696F6E32",
                         label: "Fale 2",
                         link: "https://spiteful1277.neocities.org/fale2",
                         img: "../src/imgs/deada.png"
                     },
                     {
                         key: "unlock3",
-                        hash: "mapleleaf", // replace with your hash string
-                        label: "Fale 2.5",
+                        hash: "mapleleaf",
+                        label: "Fale 2.5 (DEMO)",
                         link: "https://spiteful1277.neocities.org/MY%20Forest",
                         img: "../src/imgs/deada.png"
                     },
@@ -335,7 +334,6 @@
                     });
                 }
 
-                // Popup logic
                 const unlockPopup = document.getElementById("unlock-popup");
                 const unlockInput = document.getElementById("unlock-input");
                 const unlockSubmit = document.getElementById("unlock-submit");
@@ -421,7 +419,7 @@
                         playSFX('key' + (keyIndex + 1));
                     }
                 });
-                // On load, update unlocks
+
                 updateUnlocks();
             </script>
 </body>
