@@ -70,7 +70,7 @@ const mods = {
             name: "test",
             description: "test",
             src: "../src/imgs/Blockage.png",
-            href: "https://spiteful1277.neocities.org/Y-Box%20V1%20Recovered"
+            href: ""
         }
     ]
 };
