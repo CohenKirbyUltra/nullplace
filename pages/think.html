@@ -89,10 +89,7 @@
             height: 100%;
         }
 
-        .button-item {
-            /* padding: 20px; */
-            text-align: center;
-            align-items: center;
+        button {
             border-style: solid;
             font-size: x-small;
             background-color: black;
@@ -101,6 +98,19 @@
             width: 110px;
             margin: 4;
             height: 35px;
+            transition: background-color 0.3s, border-radius 0.3s;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: rgb(50, 50, 50);
+            border-radius: 4px;
+        }
+
+        .button-item {
+            /* padding: 20px; */
+            text-align: center;
+            align-items: center;
             gap: 10px;
             transition: background-color 0.3s, border-radius 0.3s;
         }
@@ -130,8 +140,9 @@
             align-items: center;
             border-style: solid;
             font-size: x-small;
-            background-color: black;
+            background-color: rgb(116, 116, 116);
             border-radius: 0;
+            border-color: #b7afaf;
             color: white;
             width: 110px;
             margin: 4;
@@ -143,6 +154,7 @@
         .think:hover {
             background-color: rgb(50, 50, 50);
             border-radius: 4px;
+            cursor:text;
         } 
     </style>
 </head>
