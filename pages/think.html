@@ -42,6 +42,7 @@
         body {
             margin: 0;
             display: flex;
+            flex-direction: column;
             place-items: center;
             justify-content: center;
             align-items: center;
@@ -96,7 +97,6 @@
             border-radius: 0;
             color: white;
             width: 110px;
-            margin: 4;
             height: 35px;
             transition: background-color 0.3s, border-radius 0.3s;
         }
@@ -110,7 +110,6 @@
         .button-item {
             text-align: center;
             align-items: center;
-            gap: 10px;
             transition: background-color 0.3s, border-radius 0.3s;
         }
 
@@ -144,9 +143,7 @@
             border-color: #b7afaf;
             color: white;
             width: 110px;
-            margin: 4;
             height: 35px;
-            gap: 10px;
             transition: background-color 0.3s, border-radius 0.3s;
         }
 
@@ -161,21 +158,37 @@
 <body>
     <h1>Think</h1>
     <br>
-    <input type="text" id="think-input" class="think" placeholder="Enter">
-    <button id="think-button">Submit</button>
+    <div>
+        <input type="text" id="think-input" class="think" placeholder="Enter" style="gap:2px;">
+        <button id="think-button" style="gap:2px;">Submit</button>
+    </div>
+
 
     <script>
+        var userInput = '';
+
         document.addEventListener('DOMContentLoaded', function () {
             alert("This page is under construction.");
         });
+        
         document.getElementById('think-button').addEventListener('click', function () {
-            const userInput = document.getElementById('think-input').value;
+            Think();
+        });
+
+        document.getElementById('think-input').addEventListener('input', function (event) {
+            if (event.inputType === 'insertText' && event.data === '\n') {
+                Think();
+            }
+        }); 
+
+        function Think() {
+            userInput = document.getElementById('think-input').value;
             if (userInput.trim() !== '') {
                 console.log('You entered: ' + userInput);
             } else {
                 console.log('Please enter something.');
             }
-        });
+        }
     </script>
 </body>
 
