@@ -165,6 +165,9 @@
     <button id="think-button">Submit</button>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            alert("This page is under construction.");
+        });
         document.getElementById('think-button').addEventListener('click', function () {
             const userInput = document.getElementById('think-input').value;
             if (userInput.trim() !== '') {
