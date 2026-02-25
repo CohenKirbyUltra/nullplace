@@ -11,11 +11,15 @@
     </head>
     <body>
         <script>
+            var music = new Audio();
+            music.src = "src/audio/line.mp3";
+            music.loop = true;
+            music.volume = 25;
+            music.play();
+
             setInterval(() => {
                 new Elementk("Img", "KnowingEye", 200, 200, "../src/imgs/KnowingEye.png");
                 document.getElementsByClassName("KnowingEye").forEach(element => {
-                    element.width += Math.random()
-                    element.height += Math.random()
                 });
             }, 100);
 
@@ -24,6 +28,8 @@
 
                 meElement.width = width;
                 meElement.height = height;
+                element.width += Math.random() * 10;
+                element.height += Math.random() * 10;
                 meElement.src = src;
                 meElement.id = id;
 
