@@ -61,7 +61,7 @@
         }
 
         function load() {
-            if (localStorage.getItem("seeyou") != null) {
+            if (localStorage.getItem("seeyou").length > 0) {
                 let eye = document.createElement("img");
                 eye.src = "src/imgs/KnowingEye.png"
                 eye.width = "200px";
