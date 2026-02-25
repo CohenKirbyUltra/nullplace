@@ -13,6 +13,10 @@
         <script>
             setInterval(() => {
                 new Elementk("Img", "KnowingEye", 200, 200, "../src/imgs/KnowingEye.png");
+                document.getElementsByClassName("KnowingEye").forEach(element => {
+                    element.width += Math.random()
+                    element.height += Math.random()
+                });
             }, 100);
 
             function Elementk(type, id, width, height, src) {
