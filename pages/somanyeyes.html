@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Eyes</title>
+        <style>
+            html {
+                background-color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            setInterval(() => {
+                new Elementk("Img", "KnowingEye", "200px", "200px", "../src/imgs/KnowingEye.png");
+            }, 100);
+
+            function Elementk(type, id, width, height, src) {
+                this = document.createElement(element);
+
+                this.width = width;
+                this.height = height;
+                this.src = src;
+                this.id = id;
+
+                document.body.appendChild(this);
+            }
+        </script>
+    </body>
+</html>
