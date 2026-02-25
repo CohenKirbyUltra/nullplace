@@ -18,6 +18,14 @@
             color: #001;
             border: none;
         } 
+
+        #knowingeye {
+            cursor: default;
+        }
+
+        #knowingeye:hover {
+            cursor: help;
+        }
     </style>
 </head>
 
@@ -49,6 +57,15 @@
             } else {
                 document.getElementById("hid").remove();
             }
+        }
+
+        if (localStorage.getItem("seeyou") === "hi") {
+            let eye = document.createElement(Image);
+            eye.src = "src/KnowingEye.png"
+            eye.width = "200";
+            eye.height = "200";
+            eye.id = knowingeye;
+            document.body.appendChild(eye);
         }
 
         document.addEventListener("mousemove", function () {
