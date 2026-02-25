@@ -60,7 +60,7 @@
         }
 
         function load() {
-            if (localStorage.getItem("seeyou") === "hi") {
+            if (localStorage.getItem("seeyou") != null) {
                 let eye = document.createElement("img");
                 eye.src = "src/KnowingEye.png"
                 eye.width = "200";
