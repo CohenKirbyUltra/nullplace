@@ -1,4 +1,4 @@
-<html>
+<html onload="load()">
 
 <head>
     <title>It is soon</title>
@@ -59,14 +59,17 @@
             }
         }
 
-        if (localStorage.getItem("seeyou") === "hi") {
-            let eye = document.createElement(Image);
-            eye.src = "src/KnowingEye.png"
-            eye.width = "200";
-            eye.height = "200";
-            eye.id = knowingeye;
-            document.body.appendChild(eye);
+        function load() {
+            if (localStorage.getItem("seeyou") === "hi") {
+                let eye = document.createElement(Image);
+                eye.src = "src/KnowingEye.png"
+                eye.width = "200";
+                eye.height = "200";
+                eye.id = knowingeye;
+                document.body.appendChild(eye);
+            }  
         }
+
 
         document.addEventListener("mousemove", function () {
             if (!moved) {
