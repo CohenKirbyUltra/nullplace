@@ -24,6 +24,10 @@
                 new Elementk("Img", "KnowingEye", 200, 200, "../src/imgs/KnowingEye.png");
                 document.getElementsByClassName("KnowingEye").forEach(element => {
                 });
+                document.childNodes.forEach(element => {
+                    element.width = eyewidth;
+                    element.height = eyeheight;
+                });
             }, 100);
 
             var eyewidth, eyeheight;
@@ -38,8 +42,8 @@
                 meElement.height = height;
                 meElement.width = eyewidth;
                 meElement.height = eyeheight;
-                eyewidth += (Math.random(0, 10) * 2);
-                eyeheight += (Math.random(0, 10) * 2); 
+                eyewidth += (Math.random(0, 10) - Math.random(0, 10));
+                eyeheight += (Math.random(0, 10) - Math.random(0, 10)); 
                 meElement.src = src;
                 meElement.id = id;
 
