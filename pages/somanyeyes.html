@@ -12,6 +12,8 @@
     <body>
         <script>
             alert("Failure");
+
+            var Showing = false;
             var music = new Audio();
             music.src = "src/audio/line.mp3";
             music.loop = true;
@@ -32,8 +34,17 @@
             s = RNG(0.9, 2);
 
             setInterval(() => {
-                new Elementk("Img", "KnowingEye", RNG(25, 400), RNG(25, 400), "../src/imgs/KnowingEye.png");
-            }, 10);
+                ShowOff();
+            }, 1000);
+
+            function ShowOff() {
+                if (ShowOff) {
+                    document.removeChild("Img");
+                } else {
+                    new Elementk("Img", "KnowingEye", RNG(175, 225), RNG(175, 225), "../src/imgs/KnowingEye.png")
+                }
+                ShowOff = !ShowOff;
+            }
 
             function Elementk(type, id, width, height, src) {
                 let meElement = document.createElement(type);
