@@ -22,7 +22,7 @@
 
             var eyewidth = 200, eyeheight = 200;
             function RNG(min, max) {
-                return (Math.floor(Math.random()) * min - max)
+                return Math.floor(Math.random() * min - max)
             }
             setInterval(() => {
                 new Elementk("Img", "KnowingEye", eyewidth, eyeheight, "../src/imgs/KnowingEye.png");
