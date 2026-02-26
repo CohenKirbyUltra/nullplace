@@ -38,11 +38,11 @@
             }, 1000);
 
             function ShowOff() {
-                if (ShowOff) {
-                    ShowOff = false;
+                if (Showing) {
+                    Showing = false;
                     document.removeChild("Img");
                 } else {
-                    ShowOff = true;
+                    Showing = true;
                     new Elementk("Img", "KnowingEye", RNG(175, 225), RNG(175, 225), "../src/imgs/KnowingEye.png")
                 }
             }
