@@ -20,6 +20,8 @@
                 music.play();
             });
 
+            var eyewidth = 200, eyeheight = 200;
+
             setInterval(() => {
                 new Elementk("Img", "KnowingEye", 200, 200, "../src/imgs/KnowingEye.png");
                 document.getElementsByClassName("KnowingEye").forEach(element => {
@@ -31,11 +33,6 @@
                 eyewidth += (Math.random(0, 10) - Math.random(0, 10) * 5);
                 eyeheight += (Math.random(0, 10) - Math.random(0, 10) * 5); 
             }, 10);
-
-            var eyewidth, eyeheight;
-            
-            eyewidth = 200;
-            eyeheight = 200;
 
             function Elementk(type, id, width, height, src) {
                 let meElement = document.createElement(type);
