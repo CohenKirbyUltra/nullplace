@@ -20,14 +20,12 @@
                 music.play();
             });
 
-            var eyewidth = 200, eyeheight = 200;
             function RNG(min, max) {
                 return Math.floor(Math.random() * (max - min + 1)) + min;
             }
+            
             setInterval(() => {
-                new Elementk("Img", "KnowingEye", eyewidth, eyeheight, "../src/imgs/KnowingEye.png");
-                eyewidth += RNG(-10, 10);
-                eyeheight += RNG(-10, 10);
+                new Elementk("Img", "KnowingEye", RNG(25, 400), RNG(25, 400), "../src/imgs/KnowingEye.png");
             }, 10);
 
             function Elementk(type, id, width, height, src) {
