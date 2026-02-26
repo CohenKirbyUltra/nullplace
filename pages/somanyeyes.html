@@ -23,13 +23,20 @@
                 });
             }, 100);
 
+            var eyewidth, eyeheight;
+            
+            eyewidth = 200;
+            eyeheight = 200;
+
             function Elementk(type, id, width, height, src) {
                 let meElement = document.createElement(type);
 
                 meElement.width = width;
                 meElement.height = height;
-                element.width += Math.random() * 10;
-                element.height += Math.random() * 10;
+                element.width = eyewidth;
+                element.height = eyeheight;
+                eyewidth += (Math.random(0, 10) * 2);
+                eyeheight += (Math.random(0, 10) * 2); 
                 meElement.src = src;
                 meElement.id = id;
 
