@@ -10,6 +10,10 @@
         </style>
     </head>
     <body>
+        <center>
+            <div id="contain">
+            </div>
+        </center>
         <script>
             alert("Failure");
 
@@ -57,7 +61,7 @@
                 meElement.src = src;
                 meElement.id = id;
 
-                document.body.appendChild(meElement);
+                document.body.getElementById("contain").appendChild(meElement);
             }
         </script>
     </body>
