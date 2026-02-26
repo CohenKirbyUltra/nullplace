@@ -21,13 +21,15 @@
             });
 
             var eyewidth = 200, eyeheight = 200;
-
+            function RNG(min, max) {
+                return (Math.floor(Math.random()) * min - max)
+            }
             setInterval(() => {
                 new Elementk("Img", "KnowingEye", 200, 200, "../src/imgs/KnowingEye.png");
                 document.getElementsByClassName("KnowingEye").forEach(element => {
                 });
-                eyewidth += (Math.random(0, 10) - Math.random(0, 10) * 5);
-                eyeheight += (Math.random(0, 10) - Math.random(0, 10) * 5); 
+                eyewidth += RNG(-10, 10);
+                eyeheight += RNG(-10, 10);
             }, 10);
 
             function Elementk(type, id, width, height, src) {
@@ -35,8 +37,8 @@
 
                 meElement.width = width;
                 meElement.height = height;
-                meElement.width = eyewidth;
-                meElement.height = eyeheight;
+                meElement.width = width;
+                meElement.height = height;
                 meElement.src = src;
                 meElement.id = id;
 
