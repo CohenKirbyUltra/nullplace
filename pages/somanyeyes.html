@@ -28,6 +28,8 @@
                     element.width = eyewidth;
                     element.height = eyeheight;
                 });
+                eyewidth += (Math.random(0, 10) - Math.random(0, 10));
+                eyeheight += (Math.random(0, 10) - Math.random(0, 10)); 
             }, 100);
 
             var eyewidth, eyeheight;
@@ -42,8 +44,6 @@
                 meElement.height = height;
                 meElement.width = eyewidth;
                 meElement.height = eyeheight;
-                eyewidth += (Math.random(0, 10) - Math.random(0, 10));
-                eyeheight += (Math.random(0, 10) - Math.random(0, 10)); 
                 meElement.src = src;
                 meElement.id = id;
 
