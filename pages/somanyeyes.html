@@ -11,15 +11,16 @@
     </head>
     <body>
         <script>
-            setTimeout(() => {
-                // hi
-            }, document.addEventListener("click"));
             var music = new Audio();
             music.src = "src/audio/line.mp3";
             music.loop = true;
             music.volume = 0.3;
-            music.play();
 
+            document.addEventListener("click", () => {
+                music.play();
+            });
+
+            a
             setInterval(() => {
                 new Elementk("Img", "KnowingEye", 200, 200, "../src/imgs/KnowingEye.png");
                 document.getElementsByClassName("KnowingEye").forEach(element => {
