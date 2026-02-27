@@ -101,7 +101,7 @@
                 
                     default:
                         alert("Failure");
-                        clickstart.removeEventListener("click", play);
+                        document.removeEventListener("click", play);
                         music.volume = 0;
                         document.body.children.forEach(element => {
                             element.remove();
