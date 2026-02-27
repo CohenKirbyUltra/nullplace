@@ -68,8 +68,7 @@
             function play() {
                 music.play();
             }
-
-
+            
             var gatevalue;
             var submitButton = document.getElementById("submit");
             var pulsegate = document.getElementById("pulsegate");
@@ -97,6 +96,33 @@
                         document.body.querySelectorAll("*").forEach(element => {
                             document.body.removeChild(element)
                         });
+                        break;
+
+                    case "Rotting Is Eternal":
+                        alert("No longer availible. Expired.")
+                        break;
+                    
+                    case "Fale" || "Dormancy":
+                        alert("X");
+                        music.play();
+                        break;
+
+                    case "Knowing Eye":
+                        alert("You want answers.")
+                        window.location.reload();
+                        break;
+
+                    case "770":
+                        alert("?")
+                        break;
+                    
+                    case "Decay":
+                        window.location.reload();
+                        break;
+
+                    case " ":
+                        alert("Hello World");
+                        window.location.reload();
                         break;
                 
                     default:
