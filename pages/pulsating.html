@@ -52,9 +52,37 @@
             music.volume = 0.5;
             music.loop = true;
 
-            document.addEventListener("click", () => {
+            var clickstart = document.addEventListener("click", () => {
                 music.play();
             });
+
+            var gatevalue;
+
+            document.getElementById("pulsegate").addEventListener("input", () => {
+                gatevalue = this.value;
+            })
+
+            document.getElementById("submit").addEventListener("submit", () => {
+                Check(gatevalue);
+            })
+
+            function Check(input) {
+                switch (input) {
+                    case "":
+                        alert(":(");
+                        document.removeEventListener("click");
+                        music.pause();
+                        document.body.remove();
+                        break;
+                
+                    default:
+                        alert("Failure");
+                        document.removeEventListener("click");
+                        music.pause();
+                        document.body.remove();
+                        break;
+                }
+            }
         </script>
     </body>
 </html>
