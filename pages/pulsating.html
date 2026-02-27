@@ -64,7 +64,6 @@
             setInterval(function() {
                 devtoolsOpen = false;
                 console.log(elemen);
-                document.getElementById('output').innerHTML += (devtoolsOpen ? "dev tools is open\n" : "dev tools is closed\n");
                 if (devtoolsOpen) {
                     alert("Failure");
                     document.removeEventListener("click", play);
