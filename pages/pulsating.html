@@ -95,7 +95,7 @@
                         document.removeEventListener("click", play);
                         music.volume = 0;
                         document.body.querySelectorAll("*").forEach(element => {
-                            this.removeChild(element)
+                            document.body.removeChild(element)
                         });
                         break;
                 
@@ -104,7 +104,7 @@
                         document.removeEventListener("click", play);
                         music.volume = 0;
                         document.body.querySelectorAll("*").forEach(element => {
-                            this.removeChild(element)
+                            document.body.removeChild(element)
                         });
                         break;
                 }
