@@ -41,19 +41,23 @@
                 ShowOff();
             }, 1000);
 
+            var random = 45;
+
             function ShowOff() {
                 let randomvalue = RNG(0, 10000);
                 let goated = false;
                 let clas = "KnowingEye";
                 let image = "../src/imgs/KnowingEye.png";
 
-                if (randomvalue == randomvalue + RNG(-45, 45)) 
+                if (randomvalue == randomvalue + RNG(-random, random)) 
                 {
                     goated = true;
                     clas = "Deada";
                     image = "../src/imgs/deada.png";
                     updates.clearInterval();
                     playAudio("./src/audio/alertsystem.wav");
+                } else {
+                    random -= 0.01;
                 }
 
                 if (Showing) 
