@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pulsating</title>
+        <style>
+            html {
+                background-color: #000;
+                color: #f00;
+            }
+        </style>
+    </head>
+
+    <body>
+        <center>
+            <div class="contain">
+                <input type="password" id="pulsegate" placeholder="Pulsegate"/>
+                <button id="submit">Submit</button>
+            </div>
+        </center>
+
+        <script>
+            var music = new Audio();
+            music.src = "audio/pulsating.mp3";
+            music.volume = 0.5;
+            music.loop = true;
+
+            document.addEventListener("click", () => {
+               if (!music.played) {
+                   music.play();
+               }  
+            });
+        </script>
+    </body>
+</html>
