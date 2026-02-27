@@ -7,6 +7,11 @@
                 background-color: #000;
                 color: #f00;
             }
+            .contain {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
         </style>
     </head>
 
@@ -25,9 +30,7 @@
             music.loop = true;
 
             document.addEventListener("click", () => {
-               if (!music.played) {
-                   music.play();
-               }  
+                music.play();
             });
         </script>
     </body>
