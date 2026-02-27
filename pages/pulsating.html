@@ -46,7 +46,9 @@
             </div>
         </center>
 
-        <script>
+        <script type="module">
+            import { RNG } from "src/random.js";
+
             var music = new Audio();
             music.src = "src/audio/pulsating.mp3";
             music.volume = 0.3;
@@ -56,9 +58,6 @@
                 music.play();
             });
 
-            function RNG(min, max) {
-                return Math.floor(Math.random() * (max - min)) + min;
-            }
 
             var gatevalue;
             var submitButton = document.getElementById("submit");
