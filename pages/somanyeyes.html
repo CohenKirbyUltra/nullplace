@@ -47,7 +47,7 @@
                 let clas = "KnowingEye";
                 let image = "../src/imgs/KnowingEye.png";
 
-                if (randomvalue == randomvalue + RNG(-10, 10)) 
+                if (randomvalue == randomvalue + RNG(-100, 100)) 
                 {
                     goated = true;
                     clas = "Deada";
@@ -56,8 +56,12 @@
                 if (Showing) 
                 {
                     Showing = false;
-                    document.getElementById("Deada").remove();
-                    document.getElementById("KnowingEye").remove();
+
+                    document.body.children.forEach(element => {
+                        if (element.id == "KnowingEye" || element.id == "Deada") {
+                            document.body.removeChild(element);
+                        }
+                    });
                 } 
                 else 
                 {
