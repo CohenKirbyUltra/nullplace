@@ -49,7 +49,7 @@
         <script>
             var music = new Audio();
             music.src = "src/audio/pulsating.mp3";
-            music.volume = 0.5;
+            music.volume = 0.3;
             music.loop = true;
 
             const clickstart = document.addEventListener("click", () => {
@@ -61,6 +61,7 @@
             var pulsegate = document.getElementById("pulsegate");
 
             pulsegate.addEventListener("input", () => {
+                playKeyClack();
                 gatevalue = pulsegate.innerText;
                 submitButton.disabled = (gatevalue == "" && gatevalue.length <= 0)
             })
@@ -74,7 +75,6 @@
             })
 
             function Check(input) {
-                playKeyClack();
                 if (input.length > 0) {
         
                 } else {
