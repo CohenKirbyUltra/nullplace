@@ -41,7 +41,7 @@
     <body>
         <center>
             <div class="contain">
-                <input type="password" id="pulsegate" placeholder="Pulsegate"/>
+                <input type="text" id="pulsegate" placeholder="Pulsegate"/>
                 <button id="submit">Submit</button>
             </div>
         </center>
@@ -57,20 +57,19 @@
             });
 
             var gatevalue;
+            var submitButton = document.getElementById("submit");
+            var pulsegate = document.getElementById("pulsegate");
 
-            function update() {
-                document.getElementById("submit").enabled = (gatevalue != "" && gatevalue.length > 0)
-            }
-            document.getElementById("pulsegate").addEventListener("input", () => {
-                gatevalue = document.getElementById("pulsegate").innerHTML;
-                update();
+            pulsegate.addEventListener("input", () => {
+                gatevalue = pulsegate.innerHTML;
+                submitButton.disabled = (gatevalue == "" && gatevalue.length <= 0)
             })
 
-            document.getElementById("pulsegate").addEventListener("submit", () => {
+            pulsegate.addEventListener("submit", () => {
                 Check(gatevalue);
             })
 
-            document.getElementById("submit").addEventListener("click", () => {
+            submitButton.addEventListener("click", () => {
                 Check(gatevalue);
             })
 
