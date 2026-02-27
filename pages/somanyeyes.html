@@ -44,27 +44,25 @@
             function ShowOff() {
                 let randomvalue = RNG(0, 10000);
                 let goated = false;
+                let clas = "KnowingEye";
                 let image = "../src/imgs/KnowingEye.png";
 
                 if (randomvalue = randomvalue + RNG(-10, 10)) 
                 {
                     goated = true;
+                    clas = "Deada";
                     image = "../src/imgs/deada.png";
                 } 
-                else 
-                {
-                
-                }
                 if (Showing) 
                 {
                     Showing = false;
-                    document.getElementById("KnowingEye").remove();
+                    document.getElementById(clas).remove();
                 } 
                 else 
                 {
                     Showing = true;
-                    new Elementk("Img", goated ? "Deada" : "KnowingEye", RNG(175, 225), RNG(175, 225), image)
-                    document.getElementById(goated ? "Deada" : "KnowingEye").addEventListener(("click"), () => {
+                    new Elementk("Img", clas, RNG(175, 225), RNG(175, 225), image)
+                    document.getElementById(clas).addEventListener(("click"), () => {
                         window.location.href = "https://cohenkirbyultra.github.io/nullplace/pages/pulsating.html";
                     });
                 }
