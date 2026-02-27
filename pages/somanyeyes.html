@@ -58,6 +58,7 @@
                     playAudio("./src/audio/alertsystem.wav");
                 } else {
                     random -= 0.05;
+                    random = random < 0 ? 0 : random;
                 }
 
                 if (Showing) 
