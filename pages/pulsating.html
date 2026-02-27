@@ -59,7 +59,7 @@
             var gatevalue;
 
             document.getElementById("pulsegate").addEventListener("input", () => {
-                gatevalue = this.value;
+                gatevalue = document.getElementById("pulsegate").innerHTML;
             })
 
             document.getElementById("submit").addEventListener("submit", () => {
@@ -67,6 +67,11 @@
             })
 
             function Check(input) {
+                if (input.length > 0) {
+        
+                } else {
+                    return
+                }
                 switch (input) {
                     case "":
                         alert(":(");
