@@ -37,7 +37,7 @@
             m = RNG(0.4, 1.5);
             s = RNG(0.9, 2);
 
-            setInterval(() => {
+            var updates = setInterval(() => {
                 ShowOff();
             }, 1000);
 
@@ -52,6 +52,8 @@
                     goated = true;
                     clas = "Deada";
                     image = "../src/imgs/deada.png";
+                    updates.clearInterval();
+                    playAudio("./src/audio/alertsystem.wav");
                 }
 
                 if (Showing) 
@@ -84,6 +86,13 @@
                 meElement.id = id;
 
                 document.getElementById("contain").appendChild(meElement);
+            }
+
+            function playAudio(src, volume) {
+                let a = new Audio();
+                a.src = src;
+                a.volume = volume;
+                a.play();
             }
         </script>
     </body>
