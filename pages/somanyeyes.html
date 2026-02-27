@@ -56,9 +56,11 @@
 
                 if (Showing) 
                 {
-                    document.body.querySelectorAll("Img").forEach(element => {
-                        document.body.remove(element);
-                    });
+                    if (document.querySelectorAll("Img").length > 0) {
+                        document.body.querySelectorAll("Img").forEach(element => {
+                            document.body.remove(element);
+                        });
+                    }
                     Showing = false;
                 } 
                 else 
