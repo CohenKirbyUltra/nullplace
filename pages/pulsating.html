@@ -3,6 +3,9 @@
     <head>
         <title>Pulsating</title>
         <style>
+            * {
+                font-family: monospace;
+            }
             html {
                 background-color: #000;
                 color: #f00;
@@ -60,9 +63,11 @@
             music.volume = 0.3;
             music.loop = true;
 
-            const clickstart = document.addEventListener("click", () => {
+            document.addEventListener("click", play);
+
+            function play() {
                 music.play();
-            });
+            }
 
 
             var gatevalue;
@@ -87,7 +92,7 @@
                 switch (input) {
                     case "":
                         alert(":(");
-                        clickstart.removeEventListener("click");
+                        document.removeEventListener("click", play);
                         music.volume = 0;
                         document.body.children.forEach(element => {
                             element.remove();
@@ -96,7 +101,7 @@
                 
                     default:
                         alert("Failure");
-                        clickstart.removeEventListener("click");
+                        clickstart.removeEventListener("click", play);
                         music.volume = 0;
                         document.body.children.forEach(element => {
                             element.remove();
