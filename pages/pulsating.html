@@ -104,7 +104,7 @@
             })
 
             function Check(input) {
-                switch (input) {
+                switch (input.toLowerCase()) {
                     case "":
                         alert(":(");
                         document.removeEventListener("click", play);
@@ -114,16 +114,16 @@
                         });
                         break;
 
-                    case "Rotting Is Eternal":
+                    case "rotting is eternal":
                         alert("No longer availible. Expired.")
                         break;
                     
-                    case "Fale" || "Dormancy":
+                    case "fale" || "dormancy":
                         alert("X");
                         music.play();
                         break;
 
-                    case "Knowing Eye":
+                    case "knowing eye":
                         alert("You want answers.")
                         window.location.reload();
                         break;
@@ -132,7 +132,7 @@
                         alert("?")
                         break;
                     
-                    case "Decay":
+                    case "decay":
                         window.location.reload();
                         break;
 
