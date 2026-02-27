@@ -57,9 +57,9 @@
             });
 
             function RNG(min, max) {
-                return Math.floor(Math.random() * (max - min + m)) + min * s;
+                return Math.floor(Math.random() * (max - min)) + min;
             }
-            
+
             var gatevalue;
             var submitButton = document.getElementById("submit");
             var pulsegate = document.getElementById("pulsegate");
@@ -88,15 +88,19 @@
                     case "":
                         alert(":(");
                         clickstart.removeEventListener("click");
-                        music.pause();
-                        document.body.remove();
+                        music.volume = 0;
+                        document.body.children.forEach(element => {
+                            element.remove();
+                        });
                         break;
                 
                     default:
                         alert("Failure");
                         clickstart.removeEventListener("click");
-                        music.pause();
-                        document.body.remove();
+                        music.volume = 0;
+                        document.body.children.forEach(element => {
+                            element.remove();
+                        });
                         break;
                 }
             }
@@ -104,7 +108,7 @@
             function playKeyClack() {
                 let me = new Audio();
                 me.src = `../src/sfx/key/k${RNG(0, 6)}.wav`;
-                me.volume = 0.3;
+                me.volume = 0.6;
                 me.play();
             }
         </script>
