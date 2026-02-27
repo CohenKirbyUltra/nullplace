@@ -52,13 +52,14 @@
                     goated = true;
                     clas = "Deada";
                     image = "../src/imgs/deada.png";
-                } 
+                }
+
                 if (Showing) 
                 {
-                    Showing = false;
                     document.body.querySelectorAll("Img").forEach(element => {
-                        document.body.remove(element)
+                        document.body.remove(element);
                     });
+                    Showing = false;
                 } 
                 else 
                 {
