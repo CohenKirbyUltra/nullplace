@@ -35,6 +35,12 @@
                 border-color: #f00;
                 border-radius: 6px;            
             }
+            #submit:disabled {
+                background-color: #000;
+                color: #500;
+                border-color: #500;
+                cursor: default;
+            }
         </style>
     </head>
 
@@ -65,8 +71,8 @@
 
             pulsegate.addEventListener("input", () => {
                 playKeyClack();
-                gatevalue = pulsegate.innerText;
-                submitButton.disabled = (gatevalue == "" && gatevalue.length <= 0)
+                gatevalue = pulsegate.value;
+                submitButton.disabled = (String(gatevalue).length <= 0);
             })
 
             pulsegate.addEventListener("submit", () => {
