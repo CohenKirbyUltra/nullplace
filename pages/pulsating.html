@@ -61,7 +61,7 @@
             var pulsegate = document.getElementById("pulsegate");
 
             pulsegate.addEventListener("input", () => {
-                gatevalue = pulsegate.innerHTML;
+                gatevalue = pulsegate.value;
                 submitButton.disabled = (gatevalue == "" && gatevalue.length <= 0)
             })
 
