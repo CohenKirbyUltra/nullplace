@@ -57,9 +57,9 @@
                 {
                     Showing = false;
 
-                    document.body.childNodes.forEach(element => {
-                        if (element.id == "KnowingEye" || element.id == "Deada") {
-                            document.body.removeChild(element);
+                    document.body.childNodes.forEach(key, value => {
+                        if (value.id == "KnowingEye" || value.id == "Deada") {
+                            document.body.removeChild(value);
                         }
                     });
                 } 
