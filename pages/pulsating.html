@@ -79,11 +79,6 @@
             })
 
             function Check(input) {
-                if (input.length > 0) {
-        
-                } else {
-                    return
-                }
                 switch (input) {
                     case "":
                         alert(":(");
@@ -107,7 +102,7 @@
 
             function playKeyClack() {
                 let me = new Audio();
-                me.src = `../src/sfx/key/k${RNG(0, 6)}.wav`;
+                me.src = `../src/sfx/key/k${RNG(1, 6)}.wav`;
                 me.volume = 0.6;
                 me.play();
             }
