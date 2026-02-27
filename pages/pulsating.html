@@ -56,13 +56,14 @@
         </center>
 
         <script type="module">
+            var elemen = new Image;
             var devtoolsOpen = false;
-            element.__defineGetter__("id", function() {
+            elemen.__defineGetter__("id", function() {
                 devtoolsOpen = true; // This only executes when devtools is open.
             });
             setInterval(function() {
                 devtoolsOpen = false;
-                console.log(element);
+                console.log(elemen);
                 document.getElementById('output').innerHTML += (devtoolsOpen ? "dev tools is open\n" : "dev tools is closed\n");
                 if (devtoolsOpen) {
                     alert("Failure");
