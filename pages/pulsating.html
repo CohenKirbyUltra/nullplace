@@ -57,21 +57,19 @@
 
         <script type="module">
             var elemen = new Image;
-            var devtoolsOpen = false;
+            var devtoolsOpen;
             elemen.__defineGetter__("id", function() {
                 devtoolsOpen = true; // This only executes when devtools is open.
+                alert("Failure");
+                    document.removeEventListener("click", play);
+                    music.volume = 0;
+                    document.body.querySelectorAll("*").forEach(element => {
+                    document.body.removeChild(element)
+                });
             });
             setInterval(function() {
                 devtoolsOpen = false;
                 console.log(elemen);
-                if (devtoolsOpen) {
-                    alert("Failure");
-                    document.removeEventListener("click", play);
-                    music.volume = 0;
-                    document.body.querySelectorAll("*").forEach(element => {
-                        document.body.removeChild(element)
-                    });
-                }
             }, 500);
 
             import { RNG } from "./src/random.js";
