@@ -103,8 +103,8 @@
                         alert("Failure");
                         document.removeEventListener("click", play);
                         music.volume = 0;
-                        document.body.childNodes.forEach(element => {
-                            element.remove();
+                        document.body.children.forEach(element => {
+                            document.removeChild(element)
                         });
                         break;
                 }
