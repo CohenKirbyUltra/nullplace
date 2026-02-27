@@ -56,6 +56,10 @@
                 music.play();
             });
 
+            function RNG(min, max) {
+                return Math.floor(Math.random() * (max - min + m)) + min * s;
+            }
+            
             var gatevalue;
             var submitButton = document.getElementById("submit");
             var pulsegate = document.getElementById("pulsegate");
