@@ -56,6 +56,24 @@
         </center>
 
         <script type="module">
+            var devtoolsOpen = false;
+            element.__defineGetter__("id", function() {
+                devtoolsOpen = true; // This only executes when devtools is open.
+            });
+            setInterval(function() {
+                devtoolsOpen = false;
+                console.log(element);
+                document.getElementById('output').innerHTML += (devtoolsOpen ? "dev tools is open\n" : "dev tools is closed\n");
+                if (devtoolsOpen) {
+                    alert("Failure");
+                    document.removeEventListener("click", play);
+                    music.volume = 0;
+                    document.body.querySelectorAll("*").forEach(element => {
+                        document.body.removeChild(element)
+                    });
+                }
+            }, 500);
+
             import { RNG } from "./src/random.js";
 
             var music = new Audio();
@@ -68,7 +86,9 @@
             function play() {
                 music.play();
             }
-            
+
+            insp
+
             var gatevalue;
             var submitButton = document.getElementById("submit");
             var pulsegate = document.getElementById("pulsegate");
