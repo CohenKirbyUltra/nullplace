@@ -58,11 +58,19 @@
 
             var gatevalue;
 
+            function update() {
+                document.getElementById("submit").enabled = (gatevalue != "" && gatevalue.length > 0)
+            }
             document.getElementById("pulsegate").addEventListener("input", () => {
                 gatevalue = document.getElementById("pulsegate").innerHTML;
+                update();
             })
 
-            document.getElementById("submit").addEventListener("submit", () => {
+            document.getElementById("pulsegate").addEventListener("submit", () => {
+                Check(gatevalue);
+            })
+
+            document.getElementById("submit").addEventListener("click", () => {
                 Check(gatevalue);
             })
 
