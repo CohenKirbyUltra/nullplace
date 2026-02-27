@@ -56,11 +56,8 @@
                 if (Showing) 
                 {
                     Showing = false;
-
-                    document.body.childNodes.forEach(element => {
-                        if (element.id == "KnowingEye" || element.id == "Deada") {
-                            document.body.removeChild(element);
-                        }
+                    document.body.querySelectorAll("Img").forEach(element => {
+                        document.body.removeChild(element)
                     });
                 } 
                 else 

@@ -64,8 +64,8 @@
                     document.removeEventListener("click", play);
                     music.volume = 0;
                     document.body.querySelectorAll("*").forEach(element => {
-                    document.body.removeChild(element)
-                });
+                        document.body.removeChild(element)
+                    });
             });
             setInterval(function() {
                 devtoolsOpen = false;
