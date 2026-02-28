@@ -5,9 +5,9 @@
     <body>
         <script>
             setInterval(() => {
-                let string = document.createElement("p");
-                string.innerHTML = Math.random() * 100;
-                document.appendChild(string)
+                let stringss = document.createElement("p");
+                stringss.innerHTML = new String(Math.random() * 100);
+                document.body.appendChild(stringss);
             }, 1000)
 
             var a = new Audio();
