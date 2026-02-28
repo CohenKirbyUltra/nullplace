@@ -118,9 +118,12 @@
                         alert("No longer available. Expired.")
                         break;
                     
-                    case "fale", "dormancy":
+                    case "fale":
                         alert("X");
                         music.play();
+                        break;
+                    case "dormancy":
+                        alert("X");
                         break;
 
                     case "knowing eye":
@@ -140,6 +143,10 @@
                         alert("Hello World");
                         window.location.reload();
                         break;
+                    
+                    case "idol":
+                        alert("You never were")
+                        return
                 
                     default:
                         alert("Failure");
