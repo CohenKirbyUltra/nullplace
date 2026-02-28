@@ -55,7 +55,7 @@
                     clas = "Deada";
                     image = "../src/imgs/deada.png";
                     updates.clearInterval(ShowOff);
-                    playAudio("./src/audio/alertsystem.wav");
+                    playAudio("./src/audio/alertsystem.wav", 0.25);
                 } else {
                     random -= 0.05;
                     random = random < 0 ? 0 : random;
@@ -93,10 +93,10 @@
                 document.getElementById("contain").appendChild(meElement);
             }
 
-            function playAudio(src, volume) {
+            function playAudio(esrc, evolume) {
                 let a = new Audio();
-                a.src = src;
-                a.volume = volume;
+                a.src = esrc;
+                a.volume = evolume;
                 a.play();
             }
         </script>
