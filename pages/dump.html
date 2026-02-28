@@ -9,6 +9,12 @@
                 string.innerHTML = Math.random() * 100;
                 document.append(string)
             }, 1000)
+
+            var a = new Audio();
+            a.src = "src/audio/dump.mp3";
+            a.volume = 0.25;
+            a.loop = true;
+            a.play();
         </script>
     </body>
 </html>
