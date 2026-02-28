@@ -147,6 +147,15 @@
                     case "idol":
                         alert("You never were")
                         return
+
+                    case "722020":
+                        alert("I need you to leave.")
+                        document.removeEventListener("click", play);
+                        music.volume = 0;
+                        document.body.querySelectorAll("*").forEach(element => {
+                            document.body.removeChild(element)
+                        });
+                        break;
                 
                     default:
                         alert("Failure");
