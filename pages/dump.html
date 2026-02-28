@@ -11,8 +11,12 @@
                 for (let i = 1; i <= N; i++) {
                     arr.push(document.createElement("p"));
                 }
+                let arr2 = []
+                for (let i = 1; i <= RNG(5, 25); i++) {
+                    arr2.push(0, 9);
+                }
                 arr.forEach(element => {
-                    element.innerHTML = new String(Math.random() * 100);
+                    element.innerHTML = RNG(100000000000000, 999999999999999);
                     document.body.appendChild(element);
                 });
             }, 1000)
