@@ -56,8 +56,11 @@
         </center>
 
         <script type="module">
+            import { RNG } from "./src/random.js";
+            
             var elemen = new Image;
             var devtoolsOpen;
+
             elemen.__defineGetter__("id", function() {
                 devtoolsOpen = true; // This only executes when devtools is open.
                 alert("Failure");
@@ -71,8 +74,6 @@
                 devtoolsOpen = false;
                 console.log(elemen);
             }, 500);
-
-            import { RNG } from "./src/random.js";
 
             var music = new Audio();
             music.src = "src/audio/pulsating.mp3";

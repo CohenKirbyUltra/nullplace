@@ -4,10 +4,17 @@
     <title>/</title>
     <body>
         <script>
+            import { RNG } from "./src/random.js";
             setInterval(() => {
-                let stringss = document.createElement("p");
-                stringss.innerHTML = new String(Math.random() * 100);
-                document.body.appendChild(stringss);
+                let N = RNG(1, 12);
+                let arr = [];
+                for (let i = 1; i <= N; i++) {
+                    arr.push(document.createElement("p"));
+                }
+                arr.forEach(element => {
+                    element.innerHTML = new String(Math.random() * 100);
+                    docment.body.appendChild(element);
+                });
             }, 1000)
 
             var a = new Audio();
