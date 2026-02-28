@@ -44,7 +44,7 @@
                 }
             }, 1000);
 
-            var random = 45;
+            var random = 100;
 
             function ShowOff() {
                 let randomvalue = RNG(0, 10000);
@@ -61,7 +61,7 @@
                     music.pause();
                     playAudio("./src/audio/alertsystem.wav", 0.25);
                 } else {
-                    random -= 0.05;
+                    random -= .25;
                     random = random < 0 ? 0 : random;
                 }
 
