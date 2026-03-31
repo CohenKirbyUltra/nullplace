@@ -16,6 +16,16 @@
             document.addEventListener("click", () => {
                 music.play()
             });
+
+            var img = document.getElementById("enter");
+            img.style.width = 0;
+            img.style.height = 0;
+
+            img.addEventListener("click", () => {
+                window.location.href = "index copy.html"
+            })
+            setInterval(function() {img.style.width++ img.style.height++}, 50)
         </script>
+        <img id="enter" src="src/imgs/KnowingEye.png">
     </body>
 </html>
