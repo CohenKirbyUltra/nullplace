@@ -12,8 +12,10 @@
             var music = new Audio();
             music.src = "src/audio/gone.mp3"
             music.loop = true;
-
-            music.play();
+            
+            document.addEventListener("click", () => {
+                music.play()
+            });
         </script>
     </body>
 </html>
