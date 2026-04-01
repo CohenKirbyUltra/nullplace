@@ -79,8 +79,6 @@
 
             var music = new Music("src/audio/pulsating.mp3", 0.3, true);
 
-
-
             document.addEventListener("click", play);
 
             var gatevalue;
@@ -88,7 +86,7 @@
             var pulsegate = document.getElementById("pulsegate");
 
             pulsegate.addEventListener("input", () => {
-                playKeyClack();
+                KeyClick();
                 gatevalue = pulsegate.value;
                 submitButton.disabled = (String(gatevalue).length <= 0);
             })
