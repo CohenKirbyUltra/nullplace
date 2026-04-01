@@ -1,13 +1,10 @@
 export var m = new Audio();
 
 export function Music(src, volume, loop, func) {
-    this = new Audio();
-    this.src = src;
-    this.volume = volume;
-    this.loop = loop;
+    let audio = new Audio();
+    audio.src = src;
+    audio.volume = volume;
+    audio.loop = loop;
 
-    m.volume = this.volume
-    m.loop = this.loop;
-
-    document.addEventListener("click", func);
+    return audio;
 }
