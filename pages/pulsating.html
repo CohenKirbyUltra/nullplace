@@ -57,6 +57,8 @@
 
         <script type="module">
             import { RNG } from "./src/random.js";
+            import { Music } from "./src/music.js";
+            import { KeyClick } from "./src/keyboard.js";
             
             var elemen = new Image;
             var devtoolsOpen;
@@ -75,16 +77,11 @@
                 console.log(elemen);
             }, 500);
 
-            var music = new Audio();
-            music.src = "src/audio/pulsating.mp3";
-            music.volume = 0.3;
-            music.loop = true;
+            var music = new Music("src/audio/pulsating.mp3", 0.3, true);
+
+
 
             document.addEventListener("click", play);
-
-            function play() {
-                music.play();
-            }
 
             var gatevalue;
             var submitButton = document.getElementById("submit");
@@ -169,12 +166,6 @@
                 }
             }
 
-            function playKeyClack() {
-                let me = new Audio();
-                me.src = `../src/sfx/key/k${RNG(1, 6)}.wav`;
-                me.volume = 0.6;
-                me.play();
-            }
         </script>
     </body>
 </html>
