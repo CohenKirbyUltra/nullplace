@@ -19,16 +19,17 @@
 
             var chuds = 0;
             function CreateChud() {
-                let chud = document.createElement("IMG")
+                let chud = document.createElement("IMG");
                 chud.src = "src/imgs/Croakling.png";
                 chud.style.width = "500px";
                 chud.style.height = "500px";
                 chud.id = `chud${chuds}`;
                 chuds++;
+                document.body.appendChild(chud);
             }
 
             setInterval(() => {
-                CreateChud()
+                CreateChud();
             }, 100);
         </script>
     </body>
