@@ -1,4 +1,4 @@
-export class Music {
+export default class Music {
     constructor(src, volume, loop) {
         this.src = src;
         this.volume = volume;
