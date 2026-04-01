@@ -5,7 +5,6 @@ export function Music() {
     this.volume = volume;
     this.loop = loop;
 
-    const m = new Audio(this.src);
     m.volume = this.volume
     m.loop = this.loop;
 
