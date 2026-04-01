@@ -14,22 +14,22 @@
             music.loop = true;
 
             document.addEventListener("click", () => {
-                music.play;
+                music.play();
             });
 
             var chuds = 0;
             function CreateChud() {
                 let chud = document.createElement("IMG")
-                chud.src = "src/imgs/croakling.png";
+                chud.src = "src/imgs/Croakling.png";
                 chud.style.width = "500px";
                 chud.style.height = "500px";
                 chud.id = `chud${chuds}`;
                 chuds++;
             }
 
-            setInterval(function () {
-                CreateChud();
-            }, 100)
+            setInterval(() => {
+                CreateChud()
+            }, 100);
         </script>
     </body>
 </html>
