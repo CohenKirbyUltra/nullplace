@@ -6,5 +6,5 @@ export function Music(src, volume, loop, func) {
     audio.volume = volume;
     audio.loop = loop;
 
-    return audio;
+    document.addEventListener("click", audio.play());
 }
