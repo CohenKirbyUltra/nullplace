@@ -1,6 +1,6 @@
 // For Keyboard Sounds in Inputs.
 
-export default function KeyClick(volume) {
+export function KeyClick(volume) {
     let v = volume;
 
     if (v < 0) {v = 0};
