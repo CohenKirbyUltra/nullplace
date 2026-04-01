@@ -1,6 +1,6 @@
 export var m = new Audio();
 
-export function Music() {
+export function Music(src, volume, loop) {
     this.src = src;
     this.volume = volume;
     this.loop = loop;
