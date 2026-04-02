@@ -80,7 +80,7 @@
             music.volume = 0.3;
             music.loop = true;
 
-            document.addEventListener("click", music.play());
+            document.addEventListener("click", () => {music.play()});
 
             var gatevalue;
             var submitButton = document.getElementById("submit");
