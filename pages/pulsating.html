@@ -77,7 +77,11 @@
                 console.log(elemen);
             }, 500);
 
-            var music = new Music("src/audio/pulsating.mp3", 0.3, true);
+            var music = new Audio("src/audio/pulsating.mp3");
+            music.volume = 0.3;
+            music.loop = true;
+
+            document.addEventListener("click", music.play());
 
             var gatevalue;
             var submitButton = document.getElementById("submit");
