@@ -1,103 +1,145 @@
-<html>
+<html id="full">
 
 <head>
-    <title>It is soon</title>
+    <title>My Place</title>
     <style>
+        * {
+            font-family: monospace, auto;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        html {
+            background-color: grey;
+        }
+
+        #LoadPlease {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            color: #ffffff;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        #LoadPlease div {
+            z-index: 11;
+        }
+
+        #LoadPlease h1 {
+            z-index: 12;
+        }
+
+        head {
+            margin: auto;
+        }
+
         body {
-            background-color: black;
-            color: red;
+            margin: 0;
+            display: flex;
+            place-items: center;
+            justify-content: center;
+            align-items: center;
         }
 
-        #bg {
-            width: 1000px;
-            height: 1000px;
+        #main {
+            border: solid;
+            border-radius: 32px;
+            border-width: 4px;
+            border-color: #b7afaf;
+            background-color: white;
+            width: 6.4in;
+            height: 6.7in;
         }
 
-        .hid {
+        #innerMain {
+            width: 70%;
+            max-width: 70%;
+            height: 60%;
+            border: solid;
+            border-radius: 2px;
+            border-width: 3px;
+            border-color: #585858;
+            background-color: #cfd4c3;
+            filter: drop-shadow(0px 20px 5mm #000000cf);
+            min-inline-size: 80%;
+        }
+
+        #innerMain p {
+            color: #424242;
+            font-size: 15px;
+        }
+
+        /* Grid */
+        .grid-container {
+            text-align: center;
+            align-items: center;
+            display: grid;
+        }
+
+        .grid-item {
+            text-align: -webkit-center;
+            align-items: start;
+            padding: inherit;
+            height: 100%;
+        }
+
+        .button-item {
+            /* padding: 20px; */
+            text-align: center;
+            align-items: center;
+            border-style: solid;
+            font-size: x-small;
             background-color: black;
-            color: #001;
+            border-radius: 0;
+            color: white;
+            width: 110px;
+            margin: 4;
+            height: 35px;
+            gap: 10px;
+            transition: background-color 0.3s, border-radius 0.3s;
+        }
+
+        .button-item:hover {
+            background-color: rgb(50, 50, 50);
+            border-radius: 4px;
+        }
+
+        hr {
+            display: -webkit-box;
+            position: relative;
+            padding: 1px;
+            margin: auto;
+            height: 1px;
+            max-height: 1px;
+            font-size: 1px;
+            clear: both;
             border: none;
-        } 
-
-        #knowingeye {
-            cursor: default;
-        }
-
-        #knowingeye:hover {
-            cursor: help;
+            border-width: 2px;
+            background-color: #00000055;
         }
     </style>
+
 </head>
 
 <body>
-    <h1>Hello World!</h1>
-    <img id="bg" src="src/imgs/find.png">
-    <script>
-        var Music = new Audio();
+    <div>
+        <center>
+            <h1>Slatch Ruined This.</h1>
+        </center>
+    </div>
+    <script type="text/javascript">
+        var music = new Audio('src/audio/anomalous.mp3');
+        music.loop = true;
 
-        Music.src = "src/audio/soon.mp3";
-        Music.volume = 0.23;
-        Music.autoplay = true;
-        Music.loop = true;
-
-        var event = document.body.addEventListener("click", async () => {
-            Music.play()
-            event = "";
-        });
-    </script>
-    <br>
-    <br>
-    <button class="hid" id="hid">the smell is unbearable</button>
-    <script>
-        var moved = false;
-
-        function check() {
-            if (localStorage.getItem("seeyou") === null || localStorage.getItem("seeyou") === 'null') {
-                return '';
-            } else {
-                document.getElementById("hid").remove();
-                load()
-            }
-        }
-
-        function load() {
-            if (localStorage.getItem("seeyou").length > 0) {
-                let eye = document.createElement("img");
-                eye.src = "src/imgs/KnowingEye.png"
-                eye.width = 200;
-                eye.height = 200;
-                eye.id = "knowingeye";
-                eye.addEventListener("click", function(){
-                    window.location.href = "https://cohenkirbyultra.github.io/nullplace/pages/somanyeyes.html"
-                });
-                document.body.appendChild(eye);
-            }  
-        }
-
-
-        document.addEventListener("mousemove", function () {
-            if (!moved) {
-                moved = true;
-                check()
+        document.addEventListener('click', function () {
+            if (music.paused) {
+                music.play();
             }
         });
-
-        function downloadURI(uri, name) {
-            var link = document.createElement("a");
-            link.download = name;
-            link.href = uri;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            delete link;
-        }
-
-        document.getElementById("hid").addEventListener("click", function(){
-            downloadURI("https://files.catbox.moe/obxdhq.pmp", "_execute");
-            localStorage.setItem("seeyou", "hi");
-        });
-
-
     </script>
 </body>
 

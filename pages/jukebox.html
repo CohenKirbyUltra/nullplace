@@ -1,530 +1,146 @@
-<!DOCTYPE html>
-<html>
+<html id="full">
 
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Jukebox</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../src/jukebox.css'>
+    <title>My Place</title>
+    <style>
+        * {
+            font-family: monospace, auto;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        html {
+            background-color: grey;
+        }
+
+        #LoadPlease {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            color: #ffffff;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        #LoadPlease div {
+            z-index: 11;
+        }
+
+        #LoadPlease h1 {
+            z-index: 12;
+        }
+
+        head {
+            margin: auto;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            place-items: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #main {
+            border: solid;
+            border-radius: 32px;
+            border-width: 4px;
+            border-color: #b7afaf;
+            background-color: white;
+            width: 6.4in;
+            height: 6.7in;
+        }
+
+        #innerMain {
+            width: 70%;
+            max-width: 70%;
+            height: 60%;
+            border: solid;
+            border-radius: 2px;
+            border-width: 3px;
+            border-color: #585858;
+            background-color: #cfd4c3;
+            filter: drop-shadow(0px 20px 5mm #000000cf);
+            min-inline-size: 80%;
+        }
+
+        #innerMain p {
+            color: #424242;
+            font-size: 15px;
+        }
+
+        /* Grid */
+        .grid-container {
+            text-align: center;
+            align-items: center;
+            display: grid;
+        }
+
+        .grid-item {
+            text-align: -webkit-center;
+            align-items: start;
+            padding: inherit;
+            height: 100%;
+        }
+
+        .button-item {
+            /* padding: 20px; */
+            text-align: center;
+            align-items: center;
+            border-style: solid;
+            font-size: x-small;
+            background-color: black;
+            border-radius: 0;
+            color: white;
+            width: 110px;
+            margin: 4;
+            height: 35px;
+            gap: 10px;
+            transition: background-color 0.3s, border-radius 0.3s;
+        }
+
+        .button-item:hover {
+            background-color: rgb(50, 50, 50);
+            border-radius: 4px;
+        }
+
+        hr {
+            display: -webkit-box;
+            position: relative;
+            padding: 1px;
+            margin: auto;
+            height: 1px;
+            max-height: 1px;
+            font-size: 1px;
+            clear: both;
+            border: none;
+            border-width: 2px;
+            background-color: #00000055;
+        }
+    </style>
+
 </head>
-<div id="LoadPlease" onclick="up();">
-    <center>
-        <h1>Click to Proceed.</h1>
-    </center>
-</div>
-<center>
-    <div id="main">
-        <br>
 
-        <h4 style="color: #aaaaaa;">[ WEBSITE IS VERY WIP. EXPECT UPDATES. ]</h4>
-
-        <hr style="width: 80%; margin: 20px;">
-        <div id="innerMain">
-            <marquee id="nowplay">- Not Playing -</marquee>
-            <hr>
-            <br>
-            <h3 id="Title">____</h3>
-            <h3 id="compose">____</h3>
-            <h4 id="description">____</h4>
-            <div>
-                <button id="previous"></button>
-                <button id="play">Play</button>
-                <button id="next"></button>
-            </div>
-
-            <label id="startt">0:00</label><input type="range" id="length" /><label id="endd">0:00</label>
-
-            <p id="test">- Atmo -</p>
-        </div>
+<body>
+    <div>
+        <center>
+            <h1>Slatch Ruined This.</h1>
+        </center>
     </div>
+    <script type="text/javascript">
+        var music = new Audio('src/audio/anomalous.mp3');
+        music.loop = true;
 
-    <hr>
-
-    <button class="button-item" onclick="window.location.href='../index.html'">Back</button>
-</center>
-<script src="../src/index.js"></script>
-<script>
-    // stop peeking, asshole. > : (
-    const isMobile = {
-        Android: function () {
-            return navigator.userAgent.match(/Android/i);
-        },
-        BlackBerry: function () {
-            return navigator.userAgent.match(/BlackBerry/i);
-        },
-        iOS: function () {
-            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-        },
-        Opera: function () {
-            return navigator.userAgent.match(/Opera Mini/i);
-        },
-        Windows: function () {
-            return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
-        },
-        any: function () {
-            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-        },
-        mobile: function () {
-            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera());
-        }
-    }
-
-    function rng(min, max) {
-        return Math.floor(Math.random() * (max - min)) + min;
-    }
-
-        var v = rng(0, 100);
-
-    var music = [
-        {
-            name: "atmo",
-            title: "atmo",
-            composer: "null",
-            description: "calm",
-            src: "../src/audio/jukebox/atmo.mp3"
-        },
-        {
-            name: "sea",
-            title: "the sea",
-            composer: "null",
-            description: "waves",
-            src: "../src/audio/jukebox/sea.mp3"
-        },
-        {
-            name: "The hole i found outside",
-            title: "The hole i found outside",
-            composer: "null",
-            description: "found it bottomless",
-            src: "../src/audio/jukebox/Theholeifoundoutside.mp3"
-        },
-        {
-            name: "window",
-            title: "Window",
-            composer: "null",
-            description: "light shine",
-            src: "../src/audio/jukebox/window.mp3"
-        },
-        {
-            name: "hh",
-            title: "aaa",
-            composer: "croakr",
-            description: "bbbebebehehehebebebbeh",
-            src: "../src/audio/jukebox/hh.mp3"
-        },
-        {
-            name: "som",
-            title: "som",
-            composer: "anom",
-            description: "???",
-            src: "../src/audio/jukebox/som.mp3"
-        },
-        v !== 100 ? 
-        {
-            name: "peace",
-            title: "peace",
-            composer: "vase",
-            description: ": )",
-            src: "../src/audio/jukebox/peace.mp3"
-        } :
-        {
-            name: "-",
-            title: "-- ------- ---- -- ---- -- ----",
-            // title: "my calling over to you, my love"
-            composer: "---------",
-            description: "-----------------------",
-            src: "../src/audio/jukebox/untitled.mp3"
-        },
-        {
-            name: "harshlove",
-            title: "HarshLove",
-            composer: "Fendo123",
-            description: "'Small'",
-            src: "../src/audio/jukebox/HarshLove.wav"
-        },
-        {
-            name: "decadent",
-            title: "Decadent",
-            composer: "onisethe",
-            description: "'more beats'",
-            src: "../src/audio/jukebox/Decadent.mp3"
-        },
-        {
-            name: "k",
-            title: "k",
-            composer: "FeralCariol",
-            description: "'ble'",
-            src: "../src/audio/jukebox/k.wav"
-        },
-        {
-            name: "amb",
-            title: "Ambience",
-            composer: "Minecrafter0986",
-            description: "'I did this'",
-            src: "../src/audio/jukebox/ambienceorsmth.mp3"
-        },
-        {
-            name: "c",
-            title: "c",
-            composer: "Celan (Croaker)",
-            description: "a",
-            src: "../src/audio/jukebox/Cr.mp3"
-        },
-        {
-            name: "ambience more",
-            title: "Ambient 2",
-            composer: "overbyte",
-            description: "I like this one",
-            src: "../src/audio/jukebox/Ambient2.mp3"
-        },
-        {
-            name: "gone",
-            title: "Gone",
-            composer: "Daisy",
-            description: "I like this one too",
-            src: "../src/audio/jukebox/Gone.mp3"
-        },
-        {
-            name: ":(",
-            title: ":(",
-            composer: "----",
-            description: "why did they do that to you",
-            src: "../src/audio/jukebox/i love you.mp3"
-        }
-    ];
-
-    if (v === 100) {
-        alert("");
-    }
-    
-    function up() {
-        v = rng(0, 100);
-
-        if (v === 100) {
-            alert("");
-        }
-
-        music = [
-            {
-                name: "atmo",
-                title: "atmo",
-                composer: "null",
-                description: "calm",
-                src: "../src/audio/jukebox/atmo.mp3"
-            },
-            {
-                name: "sea",
-                title: "the sea",
-                composer: "null",
-                description: "waves",
-                src: "../src/audio/jukebox/sea.mp3"
-            },
-            {
-                name: "The hole i found outside",
-                title: "The hole i found outside",
-                composer: "null",
-                description: "found it bottomless",
-                src: "../src/audio/jukebox/Theholeifoundoutside.mp3"
-            },
-            {
-                name: "window",
-                title: "Window",
-                composer: "null",
-                description: "light shine",
-                src: "../src/audio/jukebox/window.mp3"
-            },
-            {
-                name: "hh",
-                title: "aaa",
-                composer: "croakr",
-                description: "bbbebebehehehebebebbeh",
-                src: "../src/audio/jukebox/hh.mp3"
-            },
-            {
-                name: "som",
-                title: "som",
-                composer: "anom",
-                description: "???",
-                src: "../src/audio/jukebox/som.mp3"
-            },
-            v !== 100 ?
-                {
-                    name: "peace",
-                    title: "peace",
-                    composer: "vase",
-                    description: ": )",
-                    src: "../src/audio/jukebox/peace.mp3"
-                } : {
-                    name: "-",
-                    title: "-- ------- ---- -- ---- -- ----",
-                    composer: "---------",
-                    description: "-----------------------",
-                    src: "../src/audio/jukebox/untitled.mp3"
-                },
-
-            {
-                name: "harshlove",
-                title: "HarshLove",
-                composer: "Fendo123",
-                description: "'Small'",
-                src: "../src/audio/jukebox/HarshLove.wav"
-            },
-            {
-                name: "decadent",
-                title: "Decadent",
-                composer: "onisethe",
-                description: "'more beats'",
-                src: "../src/audio/jukebox/Decadent.mp3"
-            },
-            {
-                name: "k",
-                title: "k",
-                composer: "FeralCariol",
-                description: "'ble'",
-                src: "../src/audio/jukebox/k.wav"
-            },
-            {
-                name: "amb",
-                title: "Ambience",
-                composer: "Minecrafter0986",
-                description: "'I did this'",
-                src: "../src/audio/jukebox/ambienceorsmth.mp3"
-            },
-            {
-                name: "c",
-                title: "c",
-                composer: "Celan (Croaker)",
-                description: "a",
-                src: "../src/audio/jukebox/Cr.mp3"
-            },
-            {
-                name: "ambience more",
-                title: "Ambient 2",
-                composer: "overbyte",
-                description: "I like this one",
-                src: "../src/audio/jukebox/Ambient2.mp3"
-            },
-            {
-                name: "gone",
-                title: "Gone",
-                composer: "Daisy",
-                description: "I like this one too",
-                src: "../src/audio/jukebox/Gone.mp3"
-            },
-            {
-                name: ":(",
-                title: ":(",
-                composer: "----",
-                description: "why did they do that to you",
-                src: "../src/audio/jukebox/i love you.mp3"
+        document.addEventListener('click', function () {
+            if (music.paused) {
+                music.play();
             }
-        ];
-    }
-
-    up();
-
-    const prev = document.getElementById("previous");
-    prev.innerHTML = "<-";
-
-    const playbtn = document.getElementById("play");
-
-    const next = document.getElementById("next");
-    next.innerHTML = "->";
-
-    const titleText = document.getElementById("Title");
-    const composerText = document.getElementById("compose");
-    const descript = document.getElementById("description");
-    const lengthh = document.getElementById("length");
-
-    const starttime = document.getElementById("startt");
-    const endtime = document.getElementById("endd");
-
-    lengthh.step = 0.05
-
-    var cur = 0;
-
-    const audio = new Audio();
-    audio.volume = 0.35;
-    audio.src = music[cur].src;
-    audio.loop = true;
-
-    var audioTime = {
-        curSeconds: "",
-        curMinutes: "",
-        durationSec: "",
-        durationMin: ""
-    }
-
-    var shouldpause = false;
-
-    setInterval(() => {
-        shouldpause = !audio.paused;
-        playbtn.innerHTML = !audio.paused ? "Stop" : "Play";
-    }, 100);
-
-    music.forEach(element => {
-        audio.load(element.src);
-    });
-
-
-
-    function playMusic() {
-        if (shouldpause) {
-            audio.src = music[cur].src;
-            document.getElementById("nowplay").innerHTML = `- Not Playing -`;
-
-            titleText.innerHTML = "____";
-            composerText.innerHTML = "____";
-            descript.innerHTML = "____";
-
-            lengthh.min = 0;
-            lengthh.max = 0;
-            lengthh.value = 0;
-
-            audio.currentTime = 0;
-            audio.pause();
-
-        } else {
-            audio.src = music[cur].src;
-            document.getElementById("nowplay").innerHTML = `- NOW PLAYING : ${music[cur].name} -`;
-
-            lengthh.min = 0;
-
-            titleText.innerHTML = music[cur].title;
-            composerText.innerHTML = music[cur].composer;
-            descript.innerHTML = music[cur].description;
-
-            audio.play();
-
-            if (music[cur].name == ":(") {
-                setTimeout(() => {
-                    window.location.reload();
-                }, 500);
-            }
-        }
-    }
-
-    function change(x) {
-        switch (x) {
-            case "next":
-                cur += 1;
-
-                if (cur === music.length) {
-                    cur -= 1;
-                }
-
-                audio.src = music[cur].src;
-                document.getElementById("test").innerHTML = `- ${music[cur].name} -`;
-                break;
-            case "previous":
-                cur -= 1;
-
-                if (cur === -1) {
-                    cur = 0;
-                }
-
-                audio.src = music[cur].src;
-                document.getElementById("test").innerHTML = `- ${music[cur].name} -`;
-                endtime.innerHTML = `${formatTime(audio.duration)}`;
-        }
-    }
-
-    function checkAudio() {
-        if (audio.src !== "") {
-            audioTime.curSeconds = Math.round(audio.currentTime) < 10 ? `0${Math.round(audio.currentTime)}` : `${Math.round(audio.currentTime)}`;
-            audioTime.curMinutes = Math.round(audio.currentTime / 60) < 10 ? `0${Math.round(audio.currentTime / 60)}` : `${Math.round(audio.currentTime / 60)}`;
-
-            audioTime.durationSec = Math.round(audio.duration) < 10 ? `0${Math.round(audio.duration)}` : `${Math.round(audio.duration)}`;
-            audioTime.durationMin = Math.round(audio.duration / 60) < 10 ? `0${Math.round(audio.duration / 60)}` : `${Math.round(audio.duration / 60)}`;
-        }
-    }
-
-    function formatTime(seconds) {
-        const minutes = Math.floor(seconds / 60);
-        const secs = Math.floor(seconds % 60);
-
-        return `${minutes < 10 ? '0' : ''}${minutes}:${secs < 10 ? '0' : ''}${secs}`;
-    }
-
-    setInterval(function () {
-        checkAudio();
-
-        if (audio.paused) {
-            lengthh.value = 0;
-            starttime.innerHTML = "--:--";
-            endtime.innerHTML = "--:--";
-        } else {
-            lengthh.max = audio.duration;
-            lengthh.value = audio.currentTime;
-            starttime.innerHTML = `${formatTime(audio.currentTime)}`;
-            endtime.innerHTML = `${formatTime(audio.duration)}`;
-        }
-    }, 100);
-
-    var lengthheld = false;
-
-    // Mobile
-
-    lengthh.addEventListener("touchstart", () => {
-        lengthheld = true;
-    });
-
-    lengthh.addEventListener("touchmove", () => {
-        if (lengthheld) {
-            audio.currentTime = lengthh.value;
-        }
-    });
-
-    lengthh.addEventListener("touchend", () => {
-        lengthheld = false;
-    });
-
-    // PC
-
-    lengthh.addEventListener("mousedown", () => {
-        lengthheld = true;
-    });
-
-    lengthh.addEventListener("mousemove", () => {
-        if (lengthheld) {
-            audio.currentTime = lengthh.value;
-        }
-    });
-
-    lengthh.addEventListener("mouseup", () => {
-        lengthheld = false;
-    });
-
-    prev.addEventListener("click", () => {
-        change("previous");
-        up()
-    });
-
-    next.addEventListener("click", () => {
-        change("next");
-        up()
-    });
-
-
-
-    document.addEventListener("keydown",  function onKeyPress(event) {
-        switch (event.key) {
-            case "LeftArrow" || "A":
-                change("previous")
-                up();
-                break;
-            case "RightArrow" || "D":
-                change("next");
-                up();
-                break;
-            case "Space" || "Z":
-                playMusic()
-                break;    
-        }
-    });
-
-    playbtn.addEventListener("click", playMusic);
-</script>
+        });
+    </script>
 </body>
 
 </html>

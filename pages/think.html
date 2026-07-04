@@ -1,9 +1,7 @@
-<html>
+<html id="full">
 
 <head>
-    <title>Think</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Place</title>
     <style>
         * {
             font-family: monospace, auto;
@@ -42,7 +40,6 @@
         body {
             margin: 0;
             display: flex;
-            flex-direction: column;
             place-items: center;
             justify-content: center;
             align-items: center;
@@ -90,26 +87,19 @@
             height: 100%;
         }
 
-        button {
+        .button-item {
+            /* padding: 20px; */
+            text-align: center;
+            align-items: center;
             border-style: solid;
             font-size: x-small;
             background-color: black;
             border-radius: 0;
             color: white;
             width: 110px;
+            margin: 4;
             height: 35px;
-            transition: background-color 0.3s, border-radius 0.3s;
-        }
-
-        button:hover {
-            cursor: pointer;
-            background-color: rgb(50, 50, 50);
-            border-radius: 4px;
-        }
-
-        .button-item {
-            text-align: center;
-            align-items: center;
+            gap: 10px;
             transition: background-color 0.3s, border-radius 0.3s;
         }
 
@@ -131,67 +121,25 @@
             border-width: 2px;
             background-color: #00000055;
         }
-
-        .think {
-            text-align: center;
-            align-items: center;
-            border-style: solid;
-            font-size: x-small;
-            background-color: rgb(116, 116, 116);
-            border-radius: 0;
-            border-color: #b7afaf;
-            color: white;
-            width: 110px;
-            height: 35px;
-            transition: background-color 0.3s, border-radius 0.3s;
-        }
-
-        #think-input {
-            text-align: left;
-        }
-
-        .think:hover {
-            background-color: rgb(50, 50, 50);
-            border-radius: 4px;
-            cursor:text;
-        } 
     </style>
+
 </head>
 
 <body>
-    <h1>Think</h1>
-    <br>
     <div>
-        <input type="text" id="think-input" class="think" placeholder="Enter" style="gap:2px;">
-        <button id="think-button" style="gap:2px;">Submit</button>
+        <center>
+            <h1>Slatch Ruined This.</h1>
+        </center>
     </div>
+    <script type="text/javascript">
+        var music = new Audio('src/audio/anomalous.mp3');
+        music.loop = true;
 
-
-    <script>
-        var userInput = '';
-
-        document.addEventListener('DOMContentLoaded', function () {
-            alert("This page is under construction.");
-        });
-        
-        document.getElementById('think-button').addEventListener('click', function () {
-            Think();
-        });
-
-        document.getElementById('think-input').addEventListener('input', function (event) {
-            if (event.inputType === 'insertText' && event.data === '\n') {
-                Think();
+        document.addEventListener('click', function () {
+            if (music.paused) {
+                music.play();
             }
-        }); 
-
-        function Think() {
-            userInput = document.getElementById('think-input').value;
-            if (userInput.trim() !== '') {
-                console.log('You entered: ' + userInput);
-            } else {
-                console.log('Please enter something.');
-            }
-        }
+        });
     </script>
 </body>
 

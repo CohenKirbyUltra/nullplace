@@ -1,7 +1,7 @@
-<html>
+<html id="full">
 
 <head>
-    <title>-- INFO --</title>
+    <title>My Place</title>
     <style>
         * {
             font-family: monospace, auto;
@@ -121,166 +121,25 @@
             border-width: 2px;
             background-color: #00000055;
         }
-
-        .character-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-items: center;
-            align-items: center;
-            gap: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            width: max-content;
-            height: max-content;
-        }
-
-        .character-buttons button {
-            position: relative;
-            padding: 0;
-            border-radius: 5px;
-            border: none;
-            background: #eee;
-            cursor: pointer;
-            width: 45px;
-            height: 45px;
-            transition: transform 0.3s, background 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .character-buttons button:hover {
-            background: #ddd;
-            transform: scale(1.22);
-        }
-
-        .character-buttons button img {
-            width: 75%;
-            height: 75%;
-        }
-
-        .info-sheet::after {
-            content: "";
-            display: block;
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            border-width: 10px;
-            border-style: solid;
-            border-color: #fff transparent transparent transparent;
-        }
-
-        .info-sheet {
-            display: block;
-            position: fixed;
-            top: 20%;
-            left: 50%;
-            transform: translate(-50%, 0);
-            background: #fff;
-            border: 1px solid #ccc;
-            padding: 20px;
-            z-index: 1000;
-            width: 300px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            transform: translate(-50%, -20%) scale(0.95);
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-
-        .info-sheet.visible {
-            opacity: 1;
-            transform: translate(-50%, 0) scale(1);
-            pointer-events: auto;
-        }
-
-        .info-sheet img {
-            width: 100%;
-            margin-bottom: 10px;
-        }
     </style>
 
-    <div id="LoadPlease">
-        <center>
-            <h1>Click to Proceed.</h1>
-        </center>
-    </div>
 </head>
 
-<script src="src/knowledge.js"></script>
-
 <body>
-    <div id="menu">
+    <div>
         <center>
-            <div id="main">
-                <br />
-
-                <h4 style="color: #aaaaaa">
-                    [ Get out. ]
-                </h4>
-
-                <hr style="width: 80%; margin: 20px" />
-
-                <div id="innerMain">
-                    <div class="character-buttons" id="characterButtons"></div>
-                    <div class="info-sheet" id="infoSheet">
-                        <img id="charImg" src="" alt="" />
-                        <h2 id="charName"></h2>
-                        <p id="charDesc"></p>
-                        <button onclick="closeSheet()">Close</button>
-                    </div>
-                </div>
-
-                <br>
-
-                <hr>
-
-                <button class="button-item" onclick="window.location.href='../index.html'">
-                    Back
-                </button>
-            </div>
+            <h1>Slatch Ruined This.</h1>
         </center>
     </div>
+    <script type="text/javascript">
+        var music = new Audio('src/audio/anomalous.mp3');
+        music.loop = true;
 
-    <script src="src/index.js"></script>
-
-    <script>
-        const characters = [
-        ];
-
-        const buttonsDiv = document.getElementById("characterButtons");
-        const infoSheet = document.getElementById("infoSheet");
-        const charImg = document.getElementById("charImg");
-        const charName = document.getElementById("charName");
-        const charDesc = document.getElementById("charDesc");
-
-        characters.forEach((char, idx) => {
-            const btn = document.createElement("button");
-            const img = document.createElement("img");
-
-            img.src = char.image;
-            img.style.width = "100%";
-            img.style.height = "100%";
-
-            btn.appendChild(img);
-
-            btn.style.alignItems = "center";
-            btn.style.justifyContent = "center";
-            btn.onclick = () => {
-                charImg.src = char.image;
-                charImg.alt = char.name;
-                charName.textContent = char.name;
-                charDesc.textContent = char.description;
-                infoSheet.classList.add("visible");
-            };
-
-            buttonsDiv.appendChild(btn);
+        document.addEventListener('click', function () {
+            if (music.paused) {
+                music.play();
+            }
         });
-
-        function closeSheet() {
-            infoSheet.classList.remove("visible");
-        }
     </script>
 </body>
 

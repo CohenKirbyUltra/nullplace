@@ -1,108 +1,146 @@
-<!DOCTYPE html>
+<html id="full">
 
-<html>
-    <head>
-        <title>Eyes</title>
-        <style>
-            html {
-                background-color: black;
-            }
-        </style>
-    </head>
-    <body>
+<head>
+    <title>My Place</title>
+    <style>
+        * {
+            font-family: monospace, auto;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        html {
+            background-color: grey;
+        }
+
+        #LoadPlease {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            color: #ffffff;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        #LoadPlease div {
+            z-index: 11;
+        }
+
+        #LoadPlease h1 {
+            z-index: 12;
+        }
+
+        head {
+            margin: auto;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            place-items: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #main {
+            border: solid;
+            border-radius: 32px;
+            border-width: 4px;
+            border-color: #b7afaf;
+            background-color: white;
+            width: 6.4in;
+            height: 6.7in;
+        }
+
+        #innerMain {
+            width: 70%;
+            max-width: 70%;
+            height: 60%;
+            border: solid;
+            border-radius: 2px;
+            border-width: 3px;
+            border-color: #585858;
+            background-color: #cfd4c3;
+            filter: drop-shadow(0px 20px 5mm #000000cf);
+            min-inline-size: 80%;
+        }
+
+        #innerMain p {
+            color: #424242;
+            font-size: 15px;
+        }
+
+        /* Grid */
+        .grid-container {
+            text-align: center;
+            align-items: center;
+            display: grid;
+        }
+
+        .grid-item {
+            text-align: -webkit-center;
+            align-items: start;
+            padding: inherit;
+            height: 100%;
+        }
+
+        .button-item {
+            /* padding: 20px; */
+            text-align: center;
+            align-items: center;
+            border-style: solid;
+            font-size: x-small;
+            background-color: black;
+            border-radius: 0;
+            color: white;
+            width: 110px;
+            margin: 4;
+            height: 35px;
+            gap: 10px;
+            transition: background-color 0.3s, border-radius 0.3s;
+        }
+
+        .button-item:hover {
+            background-color: rgb(50, 50, 50);
+            border-radius: 4px;
+        }
+
+        hr {
+            display: -webkit-box;
+            position: relative;
+            padding: 1px;
+            margin: auto;
+            height: 1px;
+            max-height: 1px;
+            font-size: 1px;
+            clear: both;
+            border: none;
+            border-width: 2px;
+            background-color: #00000055;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
         <center>
-            <div id="contain">
-            </div>
+            <h1>Slatch Ruined This.</h1>
         </center>
-        <script>
-            alert("Failure");
+    </div>
+    <script type="text/javascript">
+        var music = new Audio('src/audio/anomalous.mp3');
+        music.loop = true;
 
-            var Showing = false;
-            var music = new Audio();
-            music.src = "src/audio/line.mp3";
-            music.loop = true;
-            music.volume = 0.3;
-
-            document.addEventListener("click", () => {
+        document.addEventListener('click', function () {
+            if (music.paused) {
                 music.play();
-            });
-
-            var m = 1;
-            var s = 1;
-
-            function RNG(min, max) {
-                return Math.floor(Math.random() * (max - min + m)) + min * s;
             }
+        });
+    </script>
+</body>
 
-            m = RNG(0.4, 1.5);
-            s = RNG(0.9, 2);
-            var updates;
-            var f = true;
-            updates = setInterval(() => {
-                if (f) {
-                ShowOff();
-                }
-            }, 1000);
-
-            var random = 100;
-
-            function ShowOff() {
-                let randomvalue = RNG(0, 10000);
-                let goated = false;
-                let clas = "KnowingEye";
-                let image = "../src/imgs/KnowingEye.png";
-
-                if (randomvalue == randomvalue + RNG(-random, random)) 
-                {
-                    goated = true;
-                    clas = "Deada";
-                    image = "../src/imgs/deada.png";
-                    f = false;
-                    music.pause();
-                    playAudio("./src/audio/alertsystem.wav", 0.25);
-                } else {
-                    random -= .25;
-                    random = random < 0 ? 0 : random;
-                }
-
-                if (Showing) 
-                {
-                    document.body.querySelectorAll("Img").forEach(element => {
-                        element.remove();
-                    });
-                    Showing = false;
-                } 
-                else 
-                {
-                    Showing = true;
-                    new Elementk("Img", clas, RNG(175, 225), RNG(175, 225), image)
-                    if (goated) {
-                        document.getElementById(clas).addEventListener(("click"), () => {
-                            window.location.href = "https://cohenkirbyultra.github.io/nullplace/pages/pulsating.html";
-                        });
-                    }
-                }
-            }
-
-            function Elementk(type, id, width, height, src) {
-                let meElement = document.createElement(type);
-
-                meElement.width = width;
-                meElement.height = height;
-                meElement.width = width;
-                meElement.height = height;
-                meElement.src = src;
-                meElement.id = id;
-
-                document.getElementById("contain").appendChild(meElement);
-            }
-
-            function playAudio(esrc, evolume) {
-                let a = new Audio();
-                a.src = esrc;
-                a.volume = evolume;
-                a.play();
-            }
-        </script>
-    </body>
 </html>

@@ -1,170 +1,146 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Pulsating</title>
-        <style>
-            * {
-                font-family: monospace;
-            }
-            html {
-                background-color: #000;
-                color: #f00;
-            }
-            /* body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin: 0;
-            } */
-            .contain {
-                display: flex;
-                justify-content: center; /* Centers horizontally */
-                align-items: center; /* Centers vertically */
-                height: 100vh; /* Full viewport height */
-                margin: 0; /* Removes default margin */
-            }
-            #pulsegate {
-                background-color: #000;
-                color: #f00;
-                border-color: #f00;
-                border-radius: 6px;
-                text-emphasis-color: #f00;
-                text-decoration-color: #f00;
-            }
-            #submit {
-                background-color: #000;
-                color: #f00;
-                border-color: #f00;
-                border-radius: 6px;            
-            }
-            #submit:disabled {
-                background-color: #000;
-                color: #500;
-                border-color: #500;
-                cursor: default;
-            }
-        </style>
-    </head>
+<html id="full">
 
-    <body>
+<head>
+    <title>My Place</title>
+    <style>
+        * {
+            font-family: monospace, auto;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        html {
+            background-color: grey;
+        }
+
+        #LoadPlease {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            color: #ffffff;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        #LoadPlease div {
+            z-index: 11;
+        }
+
+        #LoadPlease h1 {
+            z-index: 12;
+        }
+
+        head {
+            margin: auto;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            place-items: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #main {
+            border: solid;
+            border-radius: 32px;
+            border-width: 4px;
+            border-color: #b7afaf;
+            background-color: white;
+            width: 6.4in;
+            height: 6.7in;
+        }
+
+        #innerMain {
+            width: 70%;
+            max-width: 70%;
+            height: 60%;
+            border: solid;
+            border-radius: 2px;
+            border-width: 3px;
+            border-color: #585858;
+            background-color: #cfd4c3;
+            filter: drop-shadow(0px 20px 5mm #000000cf);
+            min-inline-size: 80%;
+        }
+
+        #innerMain p {
+            color: #424242;
+            font-size: 15px;
+        }
+
+        /* Grid */
+        .grid-container {
+            text-align: center;
+            align-items: center;
+            display: grid;
+        }
+
+        .grid-item {
+            text-align: -webkit-center;
+            align-items: start;
+            padding: inherit;
+            height: 100%;
+        }
+
+        .button-item {
+            /* padding: 20px; */
+            text-align: center;
+            align-items: center;
+            border-style: solid;
+            font-size: x-small;
+            background-color: black;
+            border-radius: 0;
+            color: white;
+            width: 110px;
+            margin: 4;
+            height: 35px;
+            gap: 10px;
+            transition: background-color 0.3s, border-radius 0.3s;
+        }
+
+        .button-item:hover {
+            background-color: rgb(50, 50, 50);
+            border-radius: 4px;
+        }
+
+        hr {
+            display: -webkit-box;
+            position: relative;
+            padding: 1px;
+            margin: auto;
+            height: 1px;
+            max-height: 1px;
+            font-size: 1px;
+            clear: both;
+            border: none;
+            border-width: 2px;
+            background-color: #00000055;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
         <center>
-            <div class="contain">
-                <input type="text" id="pulsegate" placeholder="Pulsegate"/>
-                <button id="submit">Submit</button>
-            </div>
+            <h1>Slatch Ruined This.</h1>
         </center>
+    </div>
+    <script type="text/javascript">
+        var music = new Audio('src/audio/anomalous.mp3');
+        music.loop = true;
 
-        <script type="module">
-            import { RNG } from "./src/random.js";
-            import KeyClick from "./src/keyboard.js";
-            
-            var elemen = new Image;
-            var devtoolsOpen;
-
-            elemen.__defineGetter__("id", function() {
-                devtoolsOpen = true; // This only executes when devtools is open.
-                alert("Failure");
-                    document.removeEventListener("click", play);
-                    music.volume = 0;
-                    document.body.querySelectorAll("*").forEach(element => {
-                        document.body.removeChild(element)
-                    });
-            });
-            setInterval(function() {
-                devtoolsOpen = false;
-                console.log(elemen);
-            }, 500);
-
-            var music = new Audio("src/audio/pulsating.mp3");
-            music.volume = 0.3;
-            music.loop = true;
-
-            document.addEventListener("click", () => {music.play()});
-
-            var gatevalue;
-            var submitButton = document.getElementById("submit");
-            var pulsegate = document.getElementById("pulsegate");
-
-            pulsegate.addEventListener("input", () => {
-                KeyClick();
-                gatevalue = pulsegate.value;
-                submitButton.disabled = (String(gatevalue).length <= 0);
-            })
-
-            pulsegate.addEventListener("submit", () => {
-                Check(gatevalue);
-            })
-
-            submitButton.addEventListener("click", () => {
-                Check(gatevalue);
-            })
-
-            function Check(input) {
-                switch (input.toLowerCase()) {
-                    case "":
-                        alert(":(");
-                        document.removeEventListener("click", play);
-                        music.volume = 0;
-                        document.body.querySelectorAll("*").forEach(element => {
-                            document.body.removeChild(element)
-                        });
-                        break;
-
-                    case "rotting is eternal":
-                        alert("No longer available. Expired.")
-                        break;
-                    
-                    case "fale":
-                        alert("X");
-                        music.play();
-                        break;
-                    case "dormancy":
-                        alert("X");
-                        break;
-
-                    case "knowing eye":
-                        alert("You want answers.")
-                        window.location.reload();
-                        break;
-
-                    case "770":
-                        alert("?")
-                        break;
-                    
-                    case "decay":
-                        window.location.reload();
-                        break;
-
-                    case " ":
-                        alert("Hello World");
-                        window.location.reload();
-                        break;
-                    
-                    case "idol":
-                        alert("You never were")
-                        return
-
-                    case "722020":
-                        alert("I need you to leave.")
-                        document.removeEventListener("click", play);
-                        music.volume = 0;
-                        document.body.querySelectorAll("*").forEach(element => {
-                            document.body.removeChild(element)
-                        });
-                        break;
-                
-                    default:
-                        alert("Failure");
-                        document.removeEventListener("click", play);
-                        music.volume = 0;
-                        document.body.querySelectorAll("*").forEach(element => {
-                            document.body.removeChild(element)
-                        });
-                        break;
-                }
+        document.addEventListener('click', function () {
+            if (music.paused) {
+                music.play();
             }
+        });
+    </script>
+</body>
 
-        </script>
-    </body>
 </html>

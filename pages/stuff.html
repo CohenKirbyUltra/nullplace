@@ -1,7 +1,7 @@
-<html>
+<html id="full">
 
 <head>
-    <title>My Mods</title>
+    <title>My Place</title>
     <style>
         * {
             font-family: monospace, auto;
@@ -45,10 +45,6 @@
             align-items: center;
         }
 
-        button img {
-            border-radius: 16px;
-        }
-
         #main {
             border: solid;
             border-radius: 32px;
@@ -62,7 +58,7 @@
         #innerMain {
             width: 70%;
             max-width: 70%;
-            height: 70%;
+            height: 60%;
             border: solid;
             border-radius: 2px;
             border-width: 3px;
@@ -127,116 +123,22 @@
         }
     </style>
 
-    <div id="LoadPlease">
-        <center>
-            <h1>Hello World!</h1>
-        </center>
-    </div>
 </head>
 
 <body>
-    <center>
-        <div id="main">
-
-            <br>
-
-            <h4 style="color: #aaaaaa;">[ Hello World! ]</h4>
-
-            <hr style="width: 80%; margin: 20px;">
-
-            <div id="innerMain">
-                <div class="grid-container" style="gap: 8px; padding: 8px; grid-template-columns: 1fr 1fr 1fr 1fr;">
-                    <button id="find">Hello World!</button>
-                </div>
-            </div>
-
-            <hr>
-
-            <button class="button-item" onclick="window.location.href='../index.html'">Hello World!</button>
-    </center>
-
-    <script>
-        // Music & DOM Loaded Variable
-
-        var DOMLoaded = false;
-
-        var Music = new Audio();
-
-        Music.src = "../src/audio/beepboop.mp3";
-        Music.volume = 0.23;
-        Music.autoplay = true;
-        Music.loop = true;
-
-        Music.addEventListener("ended", Music.play());
-
-        // Dom Load Element
-
-        const DOMPlease = document.getElementById("LoadPlease");
-
-        document.body.addEventListener("click", async () => {
-            if (!DOMLoaded) {
-                DOMLoaded = true;
-                Music.play();
-                DOMPlease.animate(
-                    [
-                        { opacity: 1 },
-                        { opacity: 0 }
-                    ],
-                    {
-                        fill: "forwards",
-                        easing: "steps(4, end)",
-                        duration: 1
-                    }
-                );
-                DOMPlease.remove();
-            }
-        });
-
-        document.getElementById("find").addEventListener("click", () => {
-            window.location.href = "https://spiteful1277.neocities.org/gren";
-        });
-    </script>
+    <div>
+        <center>
+            <h1>Slatch Ruined This.</h1>
+        </center>
+    </div>
     <script type="text/javascript">
-        const Loadup = document.getElementById("LoadPlease");
+        var music = new Audio('src/audio/anomalous.mp3');
+        music.loop = true;
 
-        window.SFX = {
-            sounds: {},
-            load(name, src) {
-                const audio = new Audio(src);
-                this.sounds[name] = audio;
-            },
-            play(name) {
-                if (this.sounds[name]) {
-                    const audio = this.sounds[name].cloneNode();
-                    audio.play();
-                }
+        document.addEventListener('click', function () {
+            if (music.paused) {
+                music.play();
             }
-        };
-
-        window.playSFX = function (name) {
-            window.SFX.play(name);
-        };
-
-        window.SFX.load('proceeded', '../src/sfx/ctc.wav');
-        window.SFX.load('click', '../src/sfx/click.wav');
-        window.SFX.load('hover1', '../src/sfx/hover_b.wav');
-        window.SFX.load('info', '../src/sfx/info.wav');
-
-
-        document.addEventListener("click", function (e) {
-            if (e.target.closest("button")) {
-                playSFX('click');
-            }
-        });
-
-        document.addEventListener("mouseover", function (e) {
-            if (e.target.closest("button")) {
-                playSFX('hover1');
-            }
-        });
-
-        document.getElementById("LoadPlease").addEventListener("click", function (e) {
-            playSFX('proceeded');
         });
     </script>
 </body>

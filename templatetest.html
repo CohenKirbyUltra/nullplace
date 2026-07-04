@@ -1,8 +1,7 @@
-<html>
+<html id="full">
 
 <head>
-    <title>Testing</title>
-
+    <title>My Place</title>
     <style>
         * {
             font-family: monospace, auto;
@@ -46,10 +45,6 @@
             align-items: center;
         }
 
-        button img {
-            border-radius: 16px;
-        }
-
         #main {
             border: solid;
             border-radius: 32px;
@@ -63,7 +58,7 @@
         #innerMain {
             width: 70%;
             max-width: 70%;
-            height: 70%;
+            height: 60%;
             border: solid;
             border-radius: 2px;
             border-width: 3px;
@@ -127,125 +122,24 @@
             background-color: #00000055;
         }
     </style>
+
 </head>
 
 <body>
-    <br>
-    <center>
-        <div id="main">
-            <div id="innerMain">
-                <div id="mainmods" class="grid-container"
-                    style="gap: 8px; padding: 8px; grid-template-columns: 1fr 1fr 1fr 1fr;">
-                </div>
-                <h3>Legacy</h3>
-                <hr style="width: 80%; margin: 20px;">
-                <div id="legacymods" class="grid-container"
-                    style="gap: 8px; padding: 8px; grid-template-columns: 1fr 1fr 1fr 1fr;">
-                </div>
-            </div>
-        </div>
-    </center>
+    <div>
+        <center>
+            <h1>Slatch Ruined This.</h1>
+        </center>
+    </div>
+    <script type="text/javascript">
+        var music = new Audio('src/audio/anomalous.mp3');
+        music.loop = true;
 
-    <script>
-        const Dmain = document.getElementById("mainmods");
-        const Dlegacy = document.getElementById("legacymods");
-
-        const ms = [0, 0, 0, 0];
-        const ls = [0];
-
-        var mainmods = [];
-        var legacymods = [];
-
-        var constructedModsA = [
-            Fale1 = {
-                name: "a",
-                link: "https://spiteful1277.neocities.org/028473910183619193739"
-            },
-
-            Fale2 = {
-                name: "b",
-                link: "https://spiteful1277.neocities.org/028473910183619193739"
-            },
-
-            Fale3 = {
-                name: "c",
-                link: "https://spiteful1277.neocities.org/028473910183619193739"
-            },
-
-            Fale4 = {
-                name: "d",
-                link: "https://spiteful1277.neocities.org/028473910183619193739"
-            },
-
-            Fale5 = {
-                name: "e",
-                link: "https://spiteful1277.neocities.org/028473910183619193739"
+        document.addEventListener('click', function () {
+            if (music.paused) {
+                music.play();
             }
-        ]
-
-        var constructedModsB = [
-            Legacy1 = {
-                name: "Legacy 1",
-                link: "https://spiteful1277.neocities.org/028473910183619193739"
-            }
-        ]
-
-        function columnCheck(type) {
-            type.forEach(element => {
-                let trs = '1fr ' + trs;
-            });
-            return (trs);
-        }
-
-        class modButton {
-            constructor(name, src, main) {
-                this.name = name ?? "Locked";
-                this.src = name === null ? src : null;
-
-                if (main) {
-                    mainmods.push(this.name);
-                } else {
-                    legacymods.push(this.name);
-                }
-            }
-
-            generate(type) {
-                let image = this.name === null ? "deada" : "Blockage";
-                let current = document.getElementById(type + "mods");
-                let contents =
-                    `
-                    <div class="grid-item" style="gap: 8px; align-self: stretch;">
-                        <button>
-                            <a href="${this.src}">
-                                <img src="../src/imgs/${image}.png" width="70px" height="70px">
-                                <h4>${this.name}</h4>
-                            </a>
-                        </button>
-                    </div>            
-                    `
-                    ??
-
-                    `
-                    <div class="grid-item" style="gap: 8px; align-self: stretch;">
-                        <button>
-                            <a>
-                                <img src="../src/imgs/Blockage.png" width="70px" height="70px">
-                                <h4>Locked</h4>
-                            </a>
-                        </button>
-                    </div>            
-                    `;
-
-                current.innerHTML = current.innerHTML + contents;
-            }
-        }
-
-        for (let index = 0; index < ms.length + 1; index++) {
-            const element = constructedModsA[index];
-            const cur = new modButton(element.name, element.link, true);
-            cur.generate("main");
-        }
-        Dmain.style.gridTemplateColumns = columnCheck("mainmods");
+        });
     </script>
 </body>
 
